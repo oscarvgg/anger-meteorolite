@@ -32,6 +32,38 @@ public class ChoosePart : MonoBehaviour {
 			{
 				SceneManager.LoadScene("PlayerController_Test");
 			}
+			if (hit.collider.name == "WHITE3") 
+			{
+				SceneManager.LoadScene("PlayerController_Test");
+			}
+			if (hit.collider.name == "WHITE4") 
+			{
+				SceneManager.LoadScene("PlayerController_Test");
+			}
+			if (hit.collider.name == "WHITE5") 
+			{
+				SceneManager.LoadScene("PlayerController_Test");
+			}
+			if (hit.collider.name == "PURPLE3") 
+			{
+				SceneManager.LoadScene("PlayerController_Test");
+			}
+			if (hit.collider.name == "PURPLE4") 
+			{
+				SceneManager.LoadScene("PlayerController_Test");
+			}
+			if (hit.collider.name == "ORANGE1") 
+			{
+				SceneManager.LoadScene("PlayerController_Test");
+			}
+			if (hit.collider.name == "ORANGE2") 
+			{
+				SceneManager.LoadScene("PlayerController_Test");
+			}
+			if (hit.collider.name == "ORANGE3") 
+			{
+				SceneManager.LoadScene("PlayerController_Test");
+			}
 		}
 	}
 
