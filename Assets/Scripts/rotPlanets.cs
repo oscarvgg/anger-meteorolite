@@ -3,6 +3,8 @@ using System.Collections;
 
 public class rotPlanets : MonoBehaviour {
 
+	public bool isRotating = false;
+
 	public Transform target;
 	public float distance = 2.0f;
 	public float xSpeed = 20.0f;
@@ -32,17 +34,29 @@ public class rotPlanets : MonoBehaviour {
 	{
 		if (target)
 		{
+
 			if (Input.GetMouseButton(0))
 			{
 				velocityX += xSpeed * Input.GetAxis("Mouse X") * distance * 0.02f;
 				velocityY += ySpeed * Input.GetAxis("Mouse Y") * 0.02f;
 			}
+
 			rotationYAxis += velocityX;
 			rotationXAxis -= velocityY;
 			rotationXAxis = ClampAngle(rotationXAxis, yMinLimit, yMaxLimit);
-			Quaternion fromRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+//			Quaternion fromRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
 			Quaternion toRotation = Quaternion.Euler(rotationXAxis, rotationYAxis, 0);
 			Quaternion rotation = toRotation;
+
+			var currentRotation = this.transform.rotation;
+			if (currentRotation != rotation) 
+			{
+				this.isRotating = true;
+			}
+			else 
+			{
+				this.isRotating = false;
+			}
 
 			//distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * 5, distanceMin, distanceMax);
 			//RaycastHit hit;

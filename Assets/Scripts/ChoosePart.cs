@@ -9,8 +9,9 @@ public class ChoosePart : MonoBehaviour {
 
 	void Update()
 	{
+		var rotationComponent = this.gameObject.GetComponent(typeof(rotPlanets)) as rotPlanets;
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(ray, out hit) && Input.GetMouseButton(0))
+		if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonUp(0) && !rotationComponent.isRotating)
 		{
 			if (hit.collider.name == "WHITE") 
 			{
