@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -16,7 +17,7 @@ public class GameController : MonoBehaviour {
 	void Update () {
 	
 		if (this.hasGameEnded) {
-			// TODO: do something
+			SceneManager.LoadScene("GameOver")
 		}
 	}
 }
