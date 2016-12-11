@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
+	public GameObject gameControllerObject;
 	/// Speed in which the player moves vertically and horizontally
 	public float horizontalSpeed = 1f;
 	public float fallSpeed = .5f;
@@ -18,6 +19,16 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+
+	void OnCollisionEnter (Collision col)
+	{
+		if(col.gameObject.tag == "Ground")
+		{
+			var gameController = gameControllerObject.GetComponent<GameController>();
+			gameController.hasGameEnded = true;
+		}
 	}
 
 }
