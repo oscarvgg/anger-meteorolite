@@ -3,13 +3,14 @@ guid: abd1945bdd3ba954999c278cdae3c2ed
 timeCreated: 1480776131
 licenseType: Free
 TrueTypeFontImporter:
-  serializedVersion: 3
+  serializedVersion: 4
   fontSize: 16
   forceTextureCase: -2
-  characterSpacing: 1
-  characterPadding: 0
+  characterSpacing: 0
+  characterPadding: 1
   includeFontData: 1
-  fontNames: []
+  fontNames:
+  - Flama
   fallbackFontReferences:
   - {fileID: 12800000, guid: 3af9d750d6632cc419e03d804e7e55a7, type: 3}
   - {fileID: 12800000, guid: c8371cb047a7b7043a85226663845439, type: 3}

@@ -3,14 +3,18 @@ guid: 3cb27d2c682a5e44188c205345d80297
 timeCreated: 1480776130
 licenseType: Free
 TrueTypeFontImporter:
-  serializedVersion: 3
+  serializedVersion: 4
   fontSize: 16
   forceTextureCase: -2
-  characterSpacing: 1
-  characterPadding: 0
+  characterSpacing: 0
+  characterPadding: 1
   includeFontData: 1
-  fontNames: []
-  fallbackFontReferences: []
+  fontNames:
+  - Flama
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 3af9d750d6632cc419e03d804e7e55a7, type: 3}
+  - {fileID: 12800000, guid: 0daa669567f5c8f4081a833349a91088, type: 3}
+  - {fileID: 12800000, guid: 1579536dd2bd293479aedac494a757a9, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

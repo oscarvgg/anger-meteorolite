@@ -3,14 +3,20 @@ guid: dd0671f55c2175249b031389d8c0ad44
 timeCreated: 1480776131
 licenseType: Free
 TrueTypeFontImporter:
-  serializedVersion: 3
+  serializedVersion: 4
   fontSize: 16
   forceTextureCase: -2
-  characterSpacing: 1
-  characterPadding: 0
+  characterSpacing: 0
+  characterPadding: 1
   includeFontData: 1
-  fontNames: []
-  fallbackFontReferences: []
+  fontNames:
+  - Flama Ultracondensed
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9e26b64454fa7fa4eaf1c0e23655f0d7, type: 3}
+  - {fileID: 12800000, guid: 5c4606e65df641c4f93a2f7698516732, type: 3}
+  - {fileID: 12800000, guid: 5d2fa78ceb19c624aa2a438755e366f0, type: 3}
+  - {fileID: 12800000, guid: d3a057bcec56a214d8c991a64778ab78, type: 3}
+  - {fileID: 12800000, guid: a552012fae305954c9d736dfe150c870, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

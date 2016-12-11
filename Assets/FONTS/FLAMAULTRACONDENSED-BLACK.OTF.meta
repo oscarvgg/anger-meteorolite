@@ -3,13 +3,14 @@ guid: 5c4606e65df641c4f93a2f7698516732
 timeCreated: 1480776130
 licenseType: Free
 TrueTypeFontImporter:
-  serializedVersion: 3
+  serializedVersion: 4
   fontSize: 16
   forceTextureCase: -2
-  characterSpacing: 1
-  characterPadding: 0
+  characterSpacing: 0
+  characterPadding: 1
   includeFontData: 1
-  fontNames: []
+  fontNames:
+  - Flama Ultracondensed
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
