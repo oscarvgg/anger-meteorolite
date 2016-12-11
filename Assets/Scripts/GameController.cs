@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour {
 	void Update () {
 	
 		if (this.hasGameEnded) {
-			SceneManager.LoadScene("GameOver")
+			SceneManager.LoadScene ("GameOver");
 		}
 	}
 }
