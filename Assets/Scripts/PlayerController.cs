@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour {
 			var gameController = gameControllerObject.GetComponent<GameController>();
 			gameController.hasGameEnded = true;
 		}
+		if(col.gameObject.tag == "Missile")
+		{
+			col.gameObject.SetActive(false);
+		}
 	}
 
 }
