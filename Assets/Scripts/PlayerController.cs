@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour {
 		}
 		if(col.gameObject.tag == "Missile")
 		{
+			var ground = GameObject.FindGameObjectsWithTag("Ground")[0];
+			var fallBehaviour = ground.GetComponent<FallBehaviour>();
+			fallBehaviour.fallSpeedIncrementor = 0;
 			col.gameObject.SetActive(false);
 		}
 	}
