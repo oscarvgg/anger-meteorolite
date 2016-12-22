@@ -18,14 +18,14 @@ public class MissileController : MonoBehaviour {
 	void Update () {
 		var distance = Vector3.Distance(this.target.transform.position, this.transform.position);
 		System.Console.WriteLine("distance: " + distance);
-		if (distance < this.distanceToStop || this.transform.position.z < 0) {
+		if (distance < this.distanceToStop || this.transform.position.y < 0) {
 			this.shouldFollowTarget = false;
 		}
 		else {
 			this.shouldFollowTarget = true;
 		}
 			
-		if (this.transform.position.z < 0) {
+		if (this.transform.position.y < 0) {
 			this.gameObject.SetActive(false);
 			var gameController = gameControllerGameObject.GetComponent<GameController>();
 			gameController.actualNumberOfMissilesOnScreen--;
