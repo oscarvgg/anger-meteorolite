@@ -25,7 +25,7 @@ public class MissileController : MonoBehaviour {
 			this.shouldFollowTarget = true;
 		}
 			
-		if (this.transform.position.y < 0) {
+		if (this.transform.position.y > Camera.main.transform.position.y + 2) {
 			this.gameObject.SetActive(false);
 			var gameController = gameControllerGameObject.GetComponent<GameController>();
 			gameController.actualNumberOfMissilesOnScreen--;
