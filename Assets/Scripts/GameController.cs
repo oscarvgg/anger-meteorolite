@@ -17,7 +17,12 @@ public class GameController : MonoBehaviour {
 	void Update () {
 	
 		if (this.hasGameEnded) {
-			SceneManager.LoadScene ("MAINPAGE");
+			StartCoroutine (Explosion());
 		}
+	}
+
+	IEnumerator Explosion(){
+		yield return new WaitForSeconds(10f);
+		SceneManager.LoadScene ("MAINPAGE");
 	}
 }

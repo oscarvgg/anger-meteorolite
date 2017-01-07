@@ -28,8 +28,14 @@ public class Weight : MonoBehaviour {
 	void OnCollisionEnter(Collision col){
 		
 		if (col.gameObject.tag == "Missile") {
-			Debug.Log ("Hola");
-			ValActual -= 1;
+			ValActual -= 10;
+			float vidaBarra = ValActual / ValMax;
+			IntroValActual (vidaBarra);
+
+		}
+
+		if (col.gameObject.tag == "Laser") {
+			ValActual -= 20;
 			float vidaBarra = ValActual / ValMax;
 			IntroValActual (vidaBarra);
 
