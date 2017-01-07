@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject camera;
 	public GameObject respawn;
 	public GameObject meteor;
+	public GameObject mete0;
 	/// Speed in which the player moves vertically and horizontally
 	public float horizontalSpeed = 1f;
 	public float fallSpeed = .5f;
@@ -19,6 +20,8 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		if (GameObject.Find ("MeteorInitial") != null){
 			meteor.GetComponent<Renderer> ().sharedMaterial = GameObject.Find ("MeteorInitial").GetComponent<Renderer> ().material;
+			mete0.GetComponent<Renderer> ().sharedMaterial = GameObject.Find ("MeteorInitial").GetComponent<Renderer> ().material;
+
 		}
 	}
 	
