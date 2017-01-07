@@ -41,5 +41,26 @@ public class Weight : MonoBehaviour {
 
 		}
 
+		if (col.gameObject.tag == "Arrow") {
+			ValActual -= 20;
+			float vidaBarra = ValActual / ValMax;
+			IntroValActual (vidaBarra);
+
+		}
+
+		if (col.gameObject.tag == "Axe") {
+			ValActual -= 25;
+			float vidaBarra = ValActual / ValMax;
+			IntroValActual (vidaBarra);
+
+		}
+
+		if (col.gameObject.tag == "Stone") {
+			ValActual -= 35;
+			float vidaBarra = ValActual / ValMax;
+			IntroValActual (vidaBarra);
+
+		}
+
 	}
 }

@@ -1,0 +1,103 @@
+﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+public class ObjectPoolScriptPlanet2 : MonoBehaviour
+{
+	public GameObject arrowObject;
+	public GameObject axeObject;
+	public GameObject stoneObject;
+	public bool willGrow = true;
+
+	public List<GameObject> pooledObjects;
+	public List<GameObject> axeObjects;
+	public List<GameObject> stoneObjects;
+
+	float secondsCounter2=0;
+	float secondsToCount2=3;
+	int arrowAmount;
+	int axeAmount;
+	int stoneAmount;
+	void Start ()
+	{
+		Attacks2 choosePart=GameObject.Find("Attacks2").GetComponent<Attacks2>() as Attacks2;
+		Debug.Log (choosePart.numberArrow);
+		arrowAmount = choosePart.numberArrow;
+		axeAmount = choosePart.numberAxe;
+		stoneAmount = choosePart.numberStone;
+		float valueX = arrowObject.transform.position.x;
+		float valueY = arrowObject.transform.position.y;
+		float valueZ = arrowObject.transform.position.z;
+		pooledObjects = new List<GameObject>();
+		for(int i = 0; i < arrowAmount; i++)
+		{
+			GameObject obj = (GameObject)Instantiate(arrowObject);
+			obj.SetActive(true);
+			obj.transform.position = new Vector3 (Random.Range (valueX - 2.5f, valueX + 2.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 1.5f, valueZ + 1.5f));
+			pooledObjects.Add(obj);
+		}
+		for(int i = 0; i < axeAmount; i++)
+		{
+			GameObject obj = (GameObject)Instantiate(axeObject);
+			obj.SetActive(false);
+			obj.transform.position = new Vector3 (Random.Range (valueX - 2.5f, valueX + 2.5f), -500f, Random.Range (valueZ - 1.5f, valueZ + 1.5f));
+			axeObjects.Add(obj);
+		}
+
+		for(int i = 0; i < stoneAmount; i++)
+		{
+			GameObject obj = (GameObject)Instantiate(axeObject);
+			obj.SetActive(false);
+			obj.transform.position = new Vector3 (Random.Range (valueX - 2.5f, valueX + 2.5f),Random.Range(-500f, -300f), Random.Range (valueZ - 1.5f, valueZ + 1.5f));
+			stoneObjects.Add(obj);
+		}
+
+
+		}
+	void Update(){
+		secondsCounter2 += Time.deltaTime;
+		if (secondsCounter2 >= secondsToCount2 && stoneAmount!=0)
+		{
+			secondsCounter2=0;
+			stoneAmount--;
+			stoneObjects [stoneAmount].SetActive (true);
+		}
+			
+	}
+	
+		
+
+
+
+
+
+
+
+	public GameObject GetPooledObject()
+	{
+		for(int i = 0; i< pooledObjects.Count; i++)
+		{
+			if(pooledObjects[i] == null)
+			{
+				GameObject obj = (GameObject)Instantiate(arrowObject);
+				obj.SetActive(false);
+				pooledObjects[i] = obj;
+				return pooledObjects[i];
+			}
+			if(!pooledObjects[i].activeInHierarchy)
+			{
+				return pooledObjects[i];
+			}    
+		}
+
+		if (willGrow)
+		{
+			GameObject obj = (GameObject)Instantiate(arrowObject);
+			pooledObjects.Add(obj);
+			return obj;
+		}
+
+		return null;
+	}
+
+}

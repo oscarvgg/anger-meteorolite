@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class StateOriginal : MonoBehaviour {
 
 	public static StateOriginal stateOriginal;
-	public Button b;
+	public GameObject meteor;
 
 	void Awake(){
 		if (stateOriginal == null) {

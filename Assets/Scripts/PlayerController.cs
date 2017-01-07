@@ -17,7 +17,9 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		if (GameObject.Find ("MeteorInitial") != null){
+			meteor.GetComponent<Renderer> ().sharedMaterial = GameObject.Find ("MeteorInitial").GetComponent<Renderer> ().material;
+		}
 	}
 	
 	// Update is called once per frame

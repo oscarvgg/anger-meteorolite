@@ -8,6 +8,6 @@ public class Laser: MonoBehaviour
 	}
 
 	void Update(){
-		this.transform.position += transform.up * 4;
+		this.transform.position += transform.forward * -6;
 	}
 }

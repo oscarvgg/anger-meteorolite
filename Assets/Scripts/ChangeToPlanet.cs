@@ -13,9 +13,10 @@ public class ChangeToPlanet : MonoBehaviour {
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if (Physics.Raycast(ray, out hit) && Input.GetMouseButton(0))
 		{
-			if (hit.collider.name == "PLANET0") 
-			{
-				SceneManager.LoadScene("ChoosePartOfPlanet");
+			if (hit.collider.name == "PLANET1") {
+				SceneManager.LoadScene ("ChoosePartOfPlanet1");
+			} else if (hit.collider.name == "PLANET2") {
+				SceneManager.LoadScene ("ChoosePartOfPlanet1");
 			}
 		}
 	}

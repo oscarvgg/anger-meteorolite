@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerMove : MonoBehaviour {
 
 	public float distance = 5;
-	public float speed=1;
+	public float speed=3;
 	public GameObject meteor;
 
 	private Vector3 initialPosition;
@@ -42,5 +42,16 @@ public class PlayerMove : MonoBehaviour {
 				this.initialPosition, // new Vector3(0, -0.1f, 1.4f), 
 				speed * Time.deltaTime);
 		}
+		if (other.gameObject.tag == "Light") {
+			other.gameObject.SetActive (false);
+			speed = 1f;
+			StartCoroutine (Seconds ());
+		}
+	}
+
+
+	IEnumerator Seconds(){
+		yield return new WaitForSeconds (5f);
+		speed = 3f;
 	}
 }

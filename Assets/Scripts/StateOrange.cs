@@ -5,6 +5,7 @@ using UnityEngine;
 public class StateOrange : MonoBehaviour {
 
 	public static StateOrange stateOrange;
+	public static GameObject meteor;
 
 	void Awake(){
 		if (stateOrange == null) {
@@ -14,4 +15,5 @@ public class StateOrange : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+
 }

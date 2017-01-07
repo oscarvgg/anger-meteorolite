@@ -7,49 +7,42 @@ public class changeskin : MonoBehaviour
 {
     //  public string changeskin1 = "GameOver";
     public GameObject original;
-    public GameObject orange;
-    public GameObject basketball;
+	public Material[] materials;
 
     // Use this for initialization
     public void ChangeToSceneNext()
     {
-        if (original.activeSelf)
+		if (original.GetComponent<Renderer> ().material==materials[0])
         {
-            orange.gameObject.SetActive(true);
-            original.gameObject.SetActive(false);
+			original.GetComponent<Renderer> ().sharedMaterial = materials [1];
 
-        }else if (orange.activeSelf)
+		}else if (original.GetComponent<Renderer> ().material==materials[1])
         {
-            orange.gameObject.SetActive(false);
-            basketball.gameObject.SetActive(true);
+			original.GetComponent<Renderer> ().sharedMaterial = materials [2];
 
         }
         else
         {
-            basketball.gameObject.SetActive(false);
-            original.gameObject.SetActive(true);
+			original.GetComponent<Renderer> ().sharedMaterial = materials [0];
         }
 
     }
     public void ChangeToSceneBack()
     {
-        if (original.activeSelf)
-        {
-            basketball.gameObject.SetActive(true);
-            original.gameObject.SetActive(false);
+		if (original.GetComponent<Renderer> ().material==materials[0])
+		{
+			original.GetComponent<Renderer> ().sharedMaterial = materials [2];
 
-        }
-        else if (orange.activeSelf)
-        {
-            orange.gameObject.SetActive(false);
-            original.gameObject.SetActive(true);
+		}else if (original.GetComponent<Renderer> ().material==materials[1])
+		{
+			original.GetComponent<Renderer> ().sharedMaterial = materials [0];
 
-        }
-        else
-        {
-            basketball.gameObject.SetActive(false);
-            orange.gameObject.SetActive(true);
-        }
+		}
+		else
+		{
+			original.GetComponent<Renderer> ().sharedMaterial = materials [1];
+		}
+
 
     }
     public void GoBack()
