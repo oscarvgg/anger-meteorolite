@@ -16,7 +16,7 @@ public class ChangeToPlanet : MonoBehaviour {
 			if (hit.collider.name == "PLANET1") {
 				SceneManager.LoadScene ("ChoosePartOfPlanet1");
 			} else if (hit.collider.name == "PLANET2") {
-				SceneManager.LoadScene ("ChoosePartOfPlanet1");
+				SceneManager.LoadScene ("ChoosePartOfPlanet2");
 			}
 		}
 	}

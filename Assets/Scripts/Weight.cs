@@ -4,8 +4,10 @@ using UnityEngine.UI;
 
 
 public class Weight : MonoBehaviour {
-	float ValMax = 100;
-	float ValActual = 100;
+	public float ValMax = 100;
+	public float ValActual = 100;
+	public bool inv=false;
+	public float amountShield=0;
 
 
 
@@ -26,40 +28,43 @@ public class Weight : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision col){
-		
-		if (col.gameObject.tag == "Missile") {
-			ValActual -= 10;
-			float vidaBarra = ValActual / ValMax;
-			IntroValActual (vidaBarra);
+		if (inv == false) {
+			if (col.gameObject.tag == "Missile" && amountShield<=0) {
+				ValActual -= 10;
+				float vidaBarra = ValActual / ValMax;
+				IntroValActual (vidaBarra);
 
-		}
+			}
 
-		if (col.gameObject.tag == "Laser") {
-			ValActual -= 20;
-			float vidaBarra = ValActual / ValMax;
-			IntroValActual (vidaBarra);
+			if (col.gameObject.tag == "Laser" && amountShield<=0) {
+				ValActual -= 20;
+				float vidaBarra = ValActual / ValMax;
+				IntroValActual (vidaBarra);
 
-		}
+			}
 
-		if (col.gameObject.tag == "Arrow") {
-			ValActual -= 20;
-			float vidaBarra = ValActual / ValMax;
-			IntroValActual (vidaBarra);
+			if (col.gameObject.tag == "Arrow" && amountShield<=0) {
+				ValActual -= 20;
+				float vidaBarra = ValActual / ValMax;
+				IntroValActual (vidaBarra);
 
-		}
+			}
 
-		if (col.gameObject.tag == "Axe") {
-			ValActual -= 25;
-			float vidaBarra = ValActual / ValMax;
-			IntroValActual (vidaBarra);
+			if (col.gameObject.tag == "Axe" && amountShield<=0) {
+				ValActual -= 25;
+				float vidaBarra = ValActual / ValMax;
+				IntroValActual (vidaBarra);
 
-		}
+			}
 
-		if (col.gameObject.tag == "Stone") {
-			ValActual -= 35;
-			float vidaBarra = ValActual / ValMax;
-			IntroValActual (vidaBarra);
+			if (col.gameObject.tag == "Stone" && amountShield<=0) {
+				ValActual -= 35;
+				float vidaBarra = ValActual / ValMax;
+				IntroValActual (vidaBarra);
 
+			}
+			amountShield--;
+				
 		}
 
 	}

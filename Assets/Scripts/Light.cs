@@ -4,10 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class Light: MonoBehaviour
 {
+	public float speed = -5;
 	void Start(){
 	}
 
 	void Update(){
-		this.transform.position += transform.up * -5;
+		this.transform.position += transform.up * speed;
 	}
 }
