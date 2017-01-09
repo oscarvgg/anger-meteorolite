@@ -8,6 +8,8 @@ public class Weight : MonoBehaviour {
 	public float ValActual = 100;
 	public bool inv=false;
 	public float amountShield=0;
+	public GameObject gameC1;
+	public GameObject gameC2;
 
 
 
@@ -20,6 +22,15 @@ public class Weight : MonoBehaviour {
 	}
 	void Update(){
 		valText.text = ValActual.ToString ();
+		if (ValActual <= 0) {
+			if (gameC1 != null) {
+				var gameController = gameC1.GetComponent<GameController> ();
+				gameController.hasGameEnded = true;
+			} else if (gameC2 != null) {
+				var gameController = gameC2.GetComponent<GameController2> ();
+				gameController.hasGameEnded = true;
+			}
+		}
 	}
 
 	void IntroValActual(float miBarra)

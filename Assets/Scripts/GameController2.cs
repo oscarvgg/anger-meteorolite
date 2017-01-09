@@ -7,6 +7,8 @@ public class GameController2 : MonoBehaviour {
 	public bool hasGameEnded = false;
 	public int maxNumberOfMissilesOnScreen = 3;
 	public int actualNumberOfMissilesOnScreen = 0;
+	public GameObject cube;
+	public GameObject coinsText;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +19,10 @@ public class GameController2 : MonoBehaviour {
 	void Update () {
 	
 		if (this.hasGameEnded) {
+			float valor=GameObject.Find ("Meteor").GetComponent<Weight> ().ValActual;
+			cube.SetActive (true);
+			GameObject.Find ("Destruction").GetComponent<Expansion> ().speed = valor;
+			coinsText.SetActive (true);
 			StartCoroutine (Explosion());
 		}
 	}

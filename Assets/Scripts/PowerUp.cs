@@ -22,8 +22,9 @@ public class PowerUp : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log (coins);
-		Debug.Log (priceShield);
+		if (GameObject.Find ("Coins") != null) {
+			coins = GameObject.Find ("Coins").GetComponent<Coins> ().coins;
+		}
 
 		
 	}
@@ -56,6 +57,10 @@ public class PowerUp : MonoBehaviour {
 			bweight.interactable = true;
 		} else {
 			bweight.interactable = false;
+		}
+
+		if (GameObject.Find ("Coins") != null) {
+			GameObject.Find ("Coins").GetComponent<Coins> ().coins=coins;
 		}
 	}
 

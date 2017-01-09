@@ -7,6 +7,9 @@ public class ObjectPoolScriptPlanet2 : MonoBehaviour
 	public GameObject arrowObject;
 	public GameObject axeObject;
 	public GameObject stoneObject;
+	public GameObject building1;
+	public GameObject building2;
+	public GameObject building3;
 	public bool willGrow = true;
 
 	public List<GameObject> pooledObjects;
@@ -50,6 +53,27 @@ public class ObjectPoolScriptPlanet2 : MonoBehaviour
 			obj.SetActive(false);
 			obj.transform.position = new Vector3 (Random.Range (valueX - 2.5f, valueX + 2.5f),Random.Range(-500f, -300f), Random.Range (valueZ - 1.5f, valueZ + 1.5f));
 			stoneObjects.Add(obj);
+		}
+
+		for (int i = 0; i < 150; i++) {
+			GameObject obj = (GameObject)Instantiate(building1);
+			obj.SetActive(true);
+			obj.transform.position = new Vector3 (Random.Range (-100, 150),-571, Random.Range (-100, 150));
+
+		}
+
+		for (int i = 0; i < 150; i++) {
+			GameObject obj = (GameObject)Instantiate(building2);
+			obj.SetActive(true);
+			obj.transform.position = new Vector3 (Random.Range (-100, 150),-571, Random.Range (-100, 150));
+
+		}
+
+		for (int i = 0; i < 150; i++) {
+			GameObject obj = (GameObject)Instantiate(building3);
+			obj.SetActive(true);
+			obj.transform.position = new Vector3 (Random.Range (-100, 150),-571, Random.Range (-100, 150));
+
 		}
 
 

@@ -12,8 +12,8 @@ public class Attacks2 : MonoBehaviour {
 
 	void Update()
 	{
-		if (GameObject.Find ("planet0") != null) {
-			ChoosePart2 choose = GameObject.Find ("planet0").GetComponent<ChoosePart2> ();
+		if (GameObject.Find ("planet2") != null) {
+			ChoosePart2 choose = GameObject.Find ("planet2").GetComponent<ChoosePart2> ();
 			numberArrow = choose.numberArrow;
 			numberAxe = choose.numberAxe;
 			numberStone = choose.numberStone;
