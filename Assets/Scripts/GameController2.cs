@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class GameController : MonoBehaviour {
+public class GameController2 : MonoBehaviour {
 
 	public bool hasGameEnded = false;
 	public int maxNumberOfMissilesOnScreen = 3;
@@ -23,6 +23,6 @@ public class GameController : MonoBehaviour {
 
 	IEnumerator Explosion(){
 		yield return new WaitForSeconds(6f);
-		SceneManager.LoadScene ("GAME OVER1");
+		SceneManager.LoadScene ("GAME OVER2");
 	}
 }

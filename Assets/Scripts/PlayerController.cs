@@ -23,6 +23,11 @@ public class PlayerController : MonoBehaviour {
 			mete0.GetComponent<Renderer> ().sharedMaterial.mainTexture = GameObject.Find ("TypeSkin").GetComponent<Skin>().skin;
 
 		}
+		if (GameObject.Find ("Settings") != null) {
+			float height = GameObject.Find ("Settings").GetComponent<SettingGame> ().camera;
+			camera.transform.position=new Vector3 (camera.transform.position.x, camera.transform.position.y+height, camera.transform.position.z);
+			meteor.transform.position = new Vector3 (meteor.transform.position.x, meteor.transform.position.y - height, meteor.transform.position.z);
+		}
 	}
 	
 	// Update is called once per frame

@@ -12,6 +12,10 @@ public class Menu: MonoBehaviour
 		SceneManager.LoadScene ("Power Up");
 	}
 
+	public void Setting(){
+		SceneManager.LoadScene ("Setting");
+	}
+
 	public void ChangeSkin(){
 		SceneManager.LoadScene ("Change skin");
 	}

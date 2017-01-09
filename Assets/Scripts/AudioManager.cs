@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public enum AudioChannel { Master, Sfx, Music };
     public float masterVolumePercent {get; private set;}
-  public float sfxVolumePercent { get; private set; }
+  	public float sfxVolumePercent { get; private set; }
     public float musicVolumePercent { get; private set; }
     AudioSource[] musicSources;
     int activeMusicSourceIndex;
