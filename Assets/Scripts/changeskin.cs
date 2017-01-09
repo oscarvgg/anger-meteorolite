@@ -7,44 +7,54 @@ public class changeskin : MonoBehaviour
 {
     //  public string changeskin1 = "GameOver";
     public GameObject original;
-	public Material[] materials;
+	public Material meteor;
+	public Texture basket;
+	public Texture orange;
+
 
     // Use this for initialization
     public void ChangeToSceneNext()
     {
-		if (original.GetComponent<Renderer> ().material==materials[0])
+		if (original.GetComponent<Renderer> ().material.mainTexture==meteor.mainTexture)
         {
-			original.GetComponent<Renderer> ().sharedMaterial = materials [1];
+			original.GetComponent<Renderer> ().sharedMaterial.mainTexture=orange;
+			GameObject.Find ("TypeSkin").GetComponent<Skin> ().skin = orange;
 
-		}else if (original.GetComponent<Renderer> ().material==materials[1])
-        {
-			original.GetComponent<Renderer> ().sharedMaterial = materials [2];
+		}else if (original.GetComponent<Renderer> ().material.mainTexture==orange)
+		{
+			original.GetComponent<Renderer> ().sharedMaterial.mainTexture=basket;
+			GameObject.Find ("TypeSkin").GetComponent<Skin> ().skin = basket;
 
         }
         else
         {
-			original.GetComponent<Renderer> ().sharedMaterial = materials [0];
+			original.GetComponent<Renderer> ().sharedMaterial.mainTexture=meteor.mainTexture;
+			GameObject.Find ("TypeSkin").GetComponent<Skin> ().skin = meteor.mainTexture;
         }
 
     }
     public void ChangeToSceneBack()
     {
-		if (original.GetComponent<Renderer> ().material==materials[0])
-		{
-			original.GetComponent<Renderer> ().sharedMaterial = materials [2];
 
-		}else if (original.GetComponent<Renderer> ().material==materials[1])
+		if (original.GetComponent<Renderer> ().material.mainTexture==meteor.mainTexture)
 		{
-			original.GetComponent<Renderer> ().sharedMaterial = materials [0];
+			original.GetComponent<Renderer> ().sharedMaterial.mainTexture=basket;
+			GameObject.Find ("TypeSkin").GetComponent<Skin> ().skin = basket;
+
+		}else if (original.GetComponent<Renderer> ().material.mainTexture==orange)
+		{
+			original.GetComponent<Renderer> ().sharedMaterial.mainTexture=meteor.mainTexture;
+			GameObject.Find ("TypeSkin").GetComponent<Skin> ().skin = meteor.mainTexture;
 
 		}
 		else
 		{
-			original.GetComponent<Renderer> ().sharedMaterial = materials [1];
+			original.GetComponent<Renderer> ().sharedMaterial.mainTexture=orange;
+			GameObject.Find ("TypeSkin").GetComponent<Skin> ().skin = orange;
 		}
 
 
-    }
+	}
     public void GoBack()
     {
         SceneManager.LoadScene("MAINPAGE");

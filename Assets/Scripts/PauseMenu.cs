@@ -127,8 +127,8 @@ public class PauseMenu : MonoBehaviour {
 		if(GameObject.Find("PowerUpsPlayer")!=null){
 			PowerUpsMeteor pum = GameObject.Find ("PowerUpsPlayer").GetComponent<PowerUpsMeteor> ();
 			float amountAdd = 20 * pum.lvWeight;
-			GameObject.Find ("Meteor").GetComponent<Weight> ().ValActual += 20;
-			GameObject.Find ("Meteor").GetComponent<Weight> ().ValMax += 20;
+			GameObject.Find ("Meteor").GetComponent<Weight> ().ValActual += amountAdd;
+			GameObject.Find ("Meteor").GetComponent<Weight> ().ValMax += amountAdd;
 			weight.gameObject.SetActive (false);
 
 		}

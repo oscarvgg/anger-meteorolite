@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	IEnumerator Explosion(){
-		yield return new WaitForSeconds(10f);
+		yield return new WaitForSeconds(6f);
 		SceneManager.LoadScene ("MAINPAGE");
 	}
 }
