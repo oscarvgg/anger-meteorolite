@@ -13,8 +13,8 @@ public class Expansion : MonoBehaviour {
 	public int game=0;
 	// Update is called once per frame
 	void Update () {
-		posX += 0.00001f*speed * Time.deltaTime;
-		posZ += 0.00001f*speed * Time.deltaTime;
+		posX += 0.00005f*speed * Time.deltaTime;
+		posZ += 0.00005f*speed * Time.deltaTime;
 		this.transform.localScale+= new Vector3 (posX, 0, posZ);
 	}
 
