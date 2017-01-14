@@ -25,7 +25,7 @@ public class SideMoveBehaviour : MonoBehaviour {
 		if (!Input.GetMouseButton(0)) {
 			return null;
 		}
-		var clickPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1);
+		var clickPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 3);
 		Vector3 worldClickPosition = Camera.main.ScreenToWorldPoint(clickPosition);
 		return worldClickPosition;
 	}

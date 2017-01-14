@@ -6,65 +6,149 @@ public class ChoosePart : MonoBehaviour {
 
 	Ray ray;
 	RaycastHit hit;
+	public int numberMissile=15;
+	public int numberLaser=3;
+	public int numberLight=0;
+	public GameObject attacks;
+
 
 	void Update()
 	{
 		var rotationComponent = this.gameObject.GetComponent(typeof(rotPlanets)) as rotPlanets;
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonUp(0) && !rotationComponent.isRotating)
+		if (Physics.Raycast(ray, out hit) && Input.touches.Length==1 && !rotationComponent.isRotating)
 		{
 			if (hit.collider.name == "WHITE") 
 			{
-				SceneManager.LoadScene("PlayerController_Test");
+				numberMissile = 15;
+				numberLaser = 3;
+				numberLight = 0;
+				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
+				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
+				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "WHITE2") 
 			{
-				SceneManager.LoadScene("PlayerController_Test");
+				numberMissile = 15;
+				numberLaser = 3;
+				numberLight = 0;
+				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
+				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
+				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "BLUE1") 
 			{
-				SceneManager.LoadScene("PlayerController_Test");
+				numberMissile = 50;
+				numberLaser = 10;
+				numberLight = 5;
+				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
+				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
+				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "PURPLE1") 
 			{
-				SceneManager.LoadScene("PlayerController_Test");
+				numberMissile = 35;
+				numberLaser = 7;
+				numberLight = 3;
+				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
+				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
+				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "PURPLE2") 
 			{
-				SceneManager.LoadScene("PlayerController_Test");
+				numberMissile = 35;
+				numberLaser = 7;
+				numberLight = 3;
+				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
+				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
+				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "WHITE3") 
 			{
-				SceneManager.LoadScene("PlayerController_Test");
+				numberMissile = 15;
+				numberLaser = 3;
+				numberLight = 0;
+				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
+				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
+				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "WHITE4") 
 			{
-				SceneManager.LoadScene("PlayerController_Test");
+				numberMissile = 15;
+				numberLaser = 3;
+				numberLight = 0;
+				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
+				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
+				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "WHITE5") 
 			{
-				SceneManager.LoadScene("PlayerController_Test");
+				numberMissile = 15;
+				numberLaser = 3;
+				numberLight = 0;
+				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
+				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
+				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "PURPLE3") 
 			{
-				SceneManager.LoadScene("PlayerController_Test");
+				numberMissile = 35;
+				numberLaser = 7;
+				numberLight = 3;
+				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
+				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
+				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "PURPLE4") 
 			{
-				SceneManager.LoadScene("PlayerController_Test");
+				numberMissile = 35;
+				numberLaser = 7;
+				numberLight = 3;
+				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
+				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
+				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "ORANGE1") 
 			{
-				SceneManager.LoadScene("PlayerController_Test");
+				numberMissile = 25;
+				numberLaser = 5;
+				numberLight = 0;
+				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
+				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
+				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "ORANGE2") 
 			{
-				SceneManager.LoadScene("PlayerController_Test");
+				numberMissile = 25;
+				numberLaser = 5;
+				numberLight = 0;
+				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
+				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
+				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "ORANGE3") 
 			{
-				SceneManager.LoadScene("PlayerController_Test");
+				numberMissile = 25;
+				numberLaser = 5;
+				numberLight = 0;
+				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
+				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
+				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				SceneManager.LoadScene("PlayerController1");
 			}
+
 		}
 	}
 

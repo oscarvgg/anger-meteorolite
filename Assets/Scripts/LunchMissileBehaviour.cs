@@ -39,7 +39,7 @@ public class LunchMissileBehaviour : MonoBehaviour {
 			return;
 		}
 
-		var spawnPosition = new Vector3(Random.Range(-11, 11), Random.Range(-7, 7), groundPosition.position.z - 2);
+		var spawnPosition = new Vector3(0f, -100f, 44.9f);
 		missile.transform.position = spawnPosition;
 		//		missile.transform.rotation = Quaternion.identity);
 		missile.SetActive(true);

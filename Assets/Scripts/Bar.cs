@@ -10,6 +10,8 @@ public class Bar : MonoBehaviour {
 
 	public GameObject meteor;
 	public GameObject planet;
+	float ValMax = 100;
+	float ValActual = 100;
 
 	public tipoBarra tipoDeBarra;
 
@@ -20,6 +22,7 @@ public class Bar : MonoBehaviour {
 
 	void Start(){
 		maxDistance = Vector3.Distance (meteor.transform.position, planet.transform.position);
+		valText.text = ValActual.ToString ();
 	}
 
 	void Update()
@@ -29,15 +32,6 @@ public class Bar : MonoBehaviour {
 		switch (tipoDeBarra)
 		{
 		case tipoBarra.Weight:
-			float ValMax = 100;
-			float ValActu = 100;
-			if (Input.GetKeyDown(KeyCode.B))
-			{
-					ValActu -= 1;
-					float vidaBarra = ValActu / ValMax;
-					IntroValActual(vidaBarra);
-					valText.text = tipoDeBarra + ": " + ValActu.ToString();
-				}
 			break;
 
 		case tipoBarra.Height:
@@ -54,13 +48,17 @@ public class Bar : MonoBehaviour {
 		barra.fillAmount = miBarra;
 	}
 
-	void onTriggerEnter(Collider other){
-		float ValMax = 100;
-		float ValActu = 100;
-		if (other.gameObject.tag == "Missile") {
-			ValActu -= 1;
-			float vidaBarra = ValActu / ValMax;
-			IntroValActual(vidaBarra);
+	void onCollisionEnter(Collider other){
+		switch(tipoDeBarra){
+		case tipoBarra.Weight:
+			if (other.tag == "Missile") {
+				ValActual -= 1;
+				float vidaBarra = ValActual / ValMax;
+				IntroValActual (vidaBarra);
+				valText.text = ValActual.ToString ();
+			}
+			break;
+
 		}
 	}
 }
