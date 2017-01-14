@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class Weight : MonoBehaviour {
 	public float ValMax = 100;
@@ -24,13 +24,20 @@ public class Weight : MonoBehaviour {
 		valText.text = ValActual.ToString ();
 		if (ValActual <= 0) {
 			if (gameC1 != null) {
-				var gameController = gameC1.GetComponent<GameController> ();
-				gameController.hasGameEnded = true;
+				StartCoroutine (Died1());
 			} else if (gameC2 != null) {
-				var gameController = gameC2.GetComponent<GameController2> ();
-				gameController.hasGameEnded = true;
+				StartCoroutine (Died2());
 			}
 		}
+	}
+
+	IEnumerator Died1(){
+		yield return new WaitForSeconds(1f);
+		SceneManager.LoadScene ("GAME OVER1");
+	}
+	IEnumerator Died2(){
+		yield return new WaitForSeconds(1f);
+		SceneManager.LoadScene ("GAME OVER2");
 	}
 
 	void IntroValActual(float miBarra)

@@ -58,21 +58,21 @@ public class ObjectPoolScriptPlanet2 : MonoBehaviour
 		for (int i = 0; i < 150; i++) {
 			GameObject obj = (GameObject)Instantiate(building1);
 			obj.SetActive(true);
-			obj.transform.position = new Vector3 (Random.Range (-100, 150),-535, Random.Range (-100, 150));
+			obj.transform.position = new Vector3 (Random.Range (-600, 600),-535, Random.Range (-600, 600));
 			obj.transform.localScale = new Vector3 (10, 10, 10);
 		}
 
 		for (int i = 0; i < 150; i++) {
 			GameObject obj = (GameObject)Instantiate(building2);
 			obj.SetActive(true);
-			obj.transform.position = new Vector3 (Random.Range (-100, 150),-535, Random.Range (-100, 150));
+			obj.transform.position = new Vector3 (Random.Range (-600, 600),-535, Random.Range (-600, 600));
 			obj.transform.localScale = new Vector3 (10, 10, 10);
 		}
 
 		for (int i = 0; i < 150; i++) {
 			GameObject obj = (GameObject)Instantiate(building3);
 			obj.SetActive(true);
-			obj.transform.position = new Vector3 (Random.Range (-100, 150),-535, Random.Range (-100, 150));
+			obj.transform.position = new Vector3 (Random.Range (-600, 600),-535, Random.Range (-600, 600));
 			obj.transform.localScale = new Vector3 (10, 10, 10);
 		}
 
