@@ -10,6 +10,7 @@ public class Weight : MonoBehaviour {
 	public float amountShield=0;
 	public GameObject gameC1;
 	public GameObject gameC2;
+	public GameObject gameC3;
 
 
 
@@ -24,9 +25,11 @@ public class Weight : MonoBehaviour {
 		valText.text = ValActual.ToString ();
 		if (ValActual <= 0) {
 			if (gameC1 != null) {
-				StartCoroutine (Died1());
+				StartCoroutine (Died1 ());
 			} else if (gameC2 != null) {
-				StartCoroutine (Died2());
+				StartCoroutine (Died2 ());
+			} else if (gameC3 != null) {
+				StartCoroutine (Died3 ());
 			}
 		}
 	}
@@ -38,6 +41,10 @@ public class Weight : MonoBehaviour {
 	IEnumerator Died2(){
 		yield return new WaitForSeconds(1f);
 		SceneManager.LoadScene ("GAME OVER2");
+	}
+	IEnumerator Died3(){
+		yield return new WaitForSeconds(1f);
+		SceneManager.LoadScene ("GAME OVER3");
 	}
 
 	void IntroValActual(float miBarra)
@@ -77,6 +84,24 @@ public class Weight : MonoBehaviour {
 
 			if (col.gameObject.tag == "Stone" && amountShield<=0) {
 				ValActual -= 35;
+				float vidaBarra = ValActual / ValMax;
+				IntroValActual (vidaBarra);
+
+			}
+			if (col.gameObject.tag == "Sword" && amountShield<=0) {
+				ValActual -= 15;
+				float vidaBarra = ValActual / ValMax;
+				IntroValActual (vidaBarra);
+
+			}
+			if (col.gameObject.tag == "Rock" && amountShield<=0) {
+				ValActual -= 20;
+				float vidaBarra = ValActual / ValMax;
+				IntroValActual (vidaBarra);
+
+			}
+			if (col.gameObject.tag == "Trishula" && amountShield<=0) {
+				ValActual -= 30;
 				float vidaBarra = ValActual / ValMax;
 				IntroValActual (vidaBarra);
 

@@ -11,6 +11,7 @@ public class PlayerMove : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Time.timeScale = 1;
 		this.initialPosition = this.transform.localPosition;
 	}
 

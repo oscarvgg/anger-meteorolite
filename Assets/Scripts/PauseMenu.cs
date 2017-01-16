@@ -16,7 +16,6 @@ public class PauseMenu : MonoBehaviour {
 
 
 
-
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Escape))
@@ -28,28 +27,14 @@ public class PauseMenu : MonoBehaviour {
 	{
 		if (canvas.gameObject.activeInHierarchy == false)
 		{
-			if (GameObject.Find ("Laser") != null) {
-				Laser las = GameObject.Find ("Laser").GetComponent<Laser> ();
-				las.speed = 0;
-			}
-			if (GameObject.Find ("SlowLight") != null) {
-				Light lig = GameObject.Find ("SlowLight").GetComponent<Light> ();
-				lig.speed = 0;
-			}
+			
 			canvas.gameObject.SetActive(true);
 			Time.timeScale = 0;
 
 		}
 		else
 		{
-			if (GameObject.Find ("Laser") != null) {
-				Laser las = GameObject.Find ("Laser").GetComponent<Laser> ();
-				las.speed = -6;
-			}
-			if (GameObject.Find ("Slowlight") != null) {
-				Light lig = GameObject.Find ("Slowlight").GetComponent<Light> ();
-				lig.speed = -5;
-			}
+
 			canvas.gameObject.SetActive(false);
 			Time.timeScale = 1;
 		}
@@ -77,28 +62,14 @@ public class PauseMenu : MonoBehaviour {
 			if (pum.lvWeight == 0) {
 				weight.SetActive (false);
 			}
-			if (GameObject.Find ("Laser") != null) {
-				Laser las = GameObject.Find ("Laser").GetComponent<Laser> ();
-				las.speed = 0;
-			}
-			if (GameObject.Find ("SlowLight") != null) {
-				Light lig = GameObject.Find ("SlowLight").GetComponent<Light> ();
-				lig.speed = 0;
-			}
+
 			power.gameObject.SetActive(true);
 			Time.timeScale = 0;
 
 		}
 		else
 		{
-			if (GameObject.Find ("Laser") != null) {
-				Laser las = GameObject.Find ("Laser").GetComponent<Laser> ();
-				las.speed = -6;
-			}
-			if (GameObject.Find ("SlowLight") != null) {
-				Light lig = GameObject.Find ("SlowLight").GetComponent<Light> ();
-				lig.speed = -5;
-			}
+			
 			power.gameObject.SetActive(false);
 			Time.timeScale = 1;
 		}

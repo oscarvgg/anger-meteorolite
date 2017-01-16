@@ -4,11 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class Laser: MonoBehaviour
 {
-	public float speed = -6;
+	public float speed = -4;
 	void Start(){
 	}
 
 	void Update(){
-		this.transform.position += transform.forward * speed;
+		this.transform.position += transform.up * -speed;
 	}
 }
