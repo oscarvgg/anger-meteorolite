@@ -16,7 +16,7 @@ public class ChoosePart2 : MonoBehaviour {
 	{
 		var rotationComponent = this.gameObject.GetComponent(typeof(rotPlanets)) as rotPlanets;
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonUp(0) && !rotationComponent.isRotating)
+		if (Physics.Raycast(ray, out hit) && Input.touches.Length==1 && !rotationComponent.isRotating)
 		{
 			if (hit.collider.name == "WHITE") 
 			{

@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour {
 	public GameObject gameControllerObject;
 	public GameObject explosion;
 	public GameObject camera;
-	public GameObject respawn;
 	public GameObject meteor;
 	public GameObject mete0;
 	/// Speed in which the player moves vertically and horizontally

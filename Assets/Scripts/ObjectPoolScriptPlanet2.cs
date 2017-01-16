@@ -36,22 +36,22 @@ public class ObjectPoolScriptPlanet2 : MonoBehaviour
 		{
 			GameObject obj = (GameObject)Instantiate(arrowObject);
 			obj.SetActive(true);
-			obj.transform.position = new Vector3 (Random.Range (valueX - 2.5f, valueX + 2.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 1.5f, valueZ + 1.5f));
+			obj.transform.position = new Vector3 (Random.Range (valueX - 0.5f, valueX + 0.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 0.5f, valueZ + 0.5f));
 			pooledObjects.Add(obj);
 		}
 		for(int i = 0; i < axeAmount; i++)
 		{
 			GameObject obj = (GameObject)Instantiate(axeObject);
-			obj.SetActive(false);
-			obj.transform.position = new Vector3 (Random.Range (valueX - 2.5f, valueX + 2.5f), -500f, Random.Range (valueZ - 1.5f, valueZ + 1.5f));
+			obj.SetActive(true);
+			obj.transform.position = new Vector3 (Random.Range (valueX - 0.5f, valueX + 0.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 0.5f, valueZ + 0.5f));
 			axeObjects.Add(obj);
 		}
 
 		for(int i = 0; i < stoneAmount; i++)
 		{
-			GameObject obj = (GameObject)Instantiate(axeObject);
-			obj.SetActive(false);
-			obj.transform.position = new Vector3 (Random.Range (valueX - 2.5f, valueX + 2.5f),Random.Range(-500f, -300f), Random.Range (valueZ - 1.5f, valueZ + 1.5f));
+			GameObject obj = (GameObject)Instantiate(stoneObject);
+			obj.SetActive(true);
+			obj.transform.position = new Vector3 (Random.Range (valueX - 0.5f, valueX + 0.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 0.5f, valueZ + 0.5f));
 			stoneObjects.Add(obj);
 		}
 
@@ -78,16 +78,7 @@ public class ObjectPoolScriptPlanet2 : MonoBehaviour
 
 
 		}
-	void Update(){
-		secondsCounter2 += Time.deltaTime;
-		if (secondsCounter2 >= secondsToCount2 && stoneAmount!=0)
-		{
-			secondsCounter2=0;
-			stoneAmount--;
-			stoneObjects [stoneAmount].SetActive (true);
-		}
-			
-	}
+
 	
 		
 

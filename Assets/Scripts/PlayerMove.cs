@@ -14,6 +14,7 @@ public class PlayerMove : MonoBehaviour {
 	bool falling=true;
 	// Use this for initialization
 	void Start () {
+		Time.timeScale = 1;
 		this.initialPosition = this.transform.localPosition;
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 	}
@@ -28,7 +29,7 @@ public class PlayerMove : MonoBehaviour {
 			pos=Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x,Input.GetTouch(0).position.y,1));
 		}else{
 			if (falling == true) {
-				pos = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 1));
+				pos = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 1.5f));
 			}
 		}
 		transform.position = new Vector3 (pos.x, pos.y -1.5f, pos.z+0.1f);
