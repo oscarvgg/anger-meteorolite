@@ -8,31 +8,34 @@ public class PlayerMove : MonoBehaviour {
 	public GameObject meteor;
 
 	private Vector3 initialPosition;
-
+	private Vector3 pos;
+	bool falling=true;
 	// Use this for initialization
 	void Start () {
 		Time.timeScale = 1;
 		this.initialPosition = this.transform.localPosition;
+		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 	}
 
 	void Update(){
-		float limitXB = meteor.transform.position.x - 2.5f;
-		float limitXA = meteor.transform.position.x + 2.5f;
-		bool used = false;
-		if (Input.GetMouseButton (0)) {
-			float valueX = meteor.transform.position.x + Input.GetAxis ("Mouse X") * speed * Time.deltaTime;
-			float valueZ = meteor.transform.position.z + Input.GetAxis ("Mouse Y") * speed * Time.deltaTime;
-			used = true;
-				
-			transform.position = new Vector3 (valueX, meteor.transform.position.y, valueZ);
-		} 
-		if(used==false){
-			transform.localPosition = Vector3.MoveTowards(
-				transform.localPosition, 
-				this.initialPosition, // new Vector3(0, -0.1f, 1.4f), 
-				speed * Time.deltaTime);
-		}
+		MoveUpdate ();
 
+	}
+
+	void MoveUpdate(){
+		if (Application.platform == RuntimePlatform.IPhonePlayer&&falling==true) {
+			pos=Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x,Input.GetTouch(0).position.y,1));
+		}else{
+			if (falling == true) {
+				pos = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 1.5f));
+			}
+		}
+		transform.position = new Vector3 (pos.x, pos.y -1.5f, pos.z+0.1f);
+
+		if (GameObject.Find ("Settings") != null) {
+			float dis = GameObject.Find ("Settings").GetComponent<SettingGame> ().camera;
+			transform.position = new Vector3 (pos.x, pos.y -1.5f + dis, pos.z+0.1f);
+		}
 	}
 
 	void OnCollisionEnter(Collision other)
@@ -47,6 +50,9 @@ public class PlayerMove : MonoBehaviour {
 			other.gameObject.SetActive (false);
 			speed = 1f;
 			StartCoroutine (Seconds ());
+		}
+		if (other.gameObject.tag == "Ground") {
+			falling = false;
 		}
 	}
 
