@@ -8,7 +8,6 @@ public class PlayerMove : MonoBehaviour {
 	public GameObject meteor;
 
 	private Vector3 initialPosition;
-	private Vector3 position;
 	private Touch touch;
 	private float posZup=0;
 	private float posZdown=0;
@@ -23,13 +22,11 @@ public class PlayerMove : MonoBehaviour {
 		Time.timeScale = 1;
 		this.initialPosition = this.transform.localPosition;
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
-		//rotation = new Vector3 (Time.deltaTime * 10, Time.deltaTime * 10, Time.deltaTime * 10);
-		meteor.GetComponent<Rigidbody> ().freezeRotation = false;
+		rotation = new Vector3 (Time.deltaTime * 10, Time.deltaTime * 10, Time.deltaTime * 10);
 	}
 
 	void Update(){
 		MoveUpdate ();
-		position = this.transform.position;
 
 	}
 
@@ -46,9 +43,9 @@ public class PlayerMove : MonoBehaviour {
 			float dis = GameObject.Find ("Settings").GetComponent<SettingGame> ().camera;
 			transform.position = new Vector3 (pos.x, pos.y -1.5f + dis, pos.z+0.1f);
 		}
-		//if(posZup==0 && posZdown==0 && posXLeft==0 && posXRight==0){
-			//transform.Rotate(rotation);
-		//}
+		if(posZup==0 && posZdown==0 && posXLeft==0 && posXRight==0){
+			transform.Rotate(rotation);
+		}
 		if (meteor.transform.position.z <= 46) {
 			this.transform.Translate (0, 0, posZup);
 		}
@@ -92,6 +89,7 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	public void GoUp(){
+		rotation = Vector3.zero;
 		if (meteor.transform.position.z <= 46) {
 			
 			posZup = 1.5f*Time.deltaTime;
@@ -99,6 +97,7 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	public void GoDown(){
+		rotation = Vector3.zero;
 		if (meteor.transform.position.z >= 43.8) {
 			
 			posZdown = -1.5f*Time.deltaTime;
@@ -106,6 +105,7 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	public void GoRight(){
+		rotation = Vector3.zero;
 		if (meteor.transform.position.x <= 1.8) {
 			
 			posXRight = 1.5f*Time.deltaTime;
@@ -113,6 +113,7 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	public void GoLeft(){
+		rotation = Vector3.zero;
 		if (meteor.transform.position.x >= -1.8) {
 
 			posXLeft = -1.5f*Time.deltaTime;
@@ -120,6 +121,7 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	public void GoLeftDown(){
+		rotation = Vector3.zero;
 		if (meteor.transform.position.x >= -1.8) {
 
 			posXLeft = -1.5f*Time.deltaTime;
@@ -132,6 +134,7 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	public void GoLeftUp(){
+		rotation = Vector3.zero;
 		if (meteor.transform.position.x >= -1.8) {
 
 			posXLeft = -1.5f*Time.deltaTime;
@@ -144,6 +147,7 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	public void GoRightDown(){
+		rotation = Vector3.zero;
 		if (meteor.transform.position.x <= 1.8) {
 
 			posXRight = 1.5f*Time.deltaTime;
@@ -156,6 +160,7 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	public void GoRightUp(){
+		rotation = Vector3.zero;
 		if (meteor.transform.position.x <= 1.8) {
 
 			posXRight = 1.5f*Time.deltaTime;
@@ -177,5 +182,8 @@ public class PlayerMove : MonoBehaviour {
 		posZdown = 0;
 		posXRight=0;
 		posXLeft=0;
+		rotation = new Vector3 (Time.deltaTime * 10, Time.deltaTime * 10, Time.deltaTime * 10);
+
+
 	}
 }
