@@ -9,23 +9,23 @@ public class ChoosePart : MonoBehaviour {
 	public int numberMissile=15;
 	public int numberLaser=3;
 	public int numberLight=0;
-	public GameObject attacks;
-
 
 	void Update()
 	{
+		Attacks1 attacks = GameObject.Find ("Attacks1").GetComponent<Attacks1> ();
 		var rotationComponent = this.gameObject.GetComponent(typeof(rotPlanets)) as rotPlanets;
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(ray, out hit) && Input.touches.Length==1 && !rotationComponent.isRotating)
+	
+		if (Physics.Raycast(ray, out hit) && (Input.touches.Length==1 || Input.GetMouseButtonUp(0)) && !rotationComponent.isRotating)
 		{
-			if (hit.collider.name == "WHITE") 
+			if (hit.collider.name == "WHITE")
 			{
 				numberMissile = 15;
 				numberLaser = 3;
 				numberLight = 0;
-				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
-				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
-				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				attacks.numberMissile=numberMissile;
+				attacks.numberLaser=numberLaser;
+				attacks.numberLight=numberLight;
 				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "WHITE2") 
@@ -33,9 +33,9 @@ public class ChoosePart : MonoBehaviour {
 				numberMissile = 15;
 				numberLaser = 3;
 				numberLight = 0;
-				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
-				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
-				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				attacks.numberMissile=numberMissile;
+				attacks.numberLaser=numberLaser;
+				attacks.numberLight=numberLight;
 				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "BLUE1") 
@@ -43,9 +43,9 @@ public class ChoosePart : MonoBehaviour {
 				numberMissile = 50;
 				numberLaser = 10;
 				numberLight = 5;
-				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
-				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
-				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				attacks.numberMissile=numberMissile;
+				attacks.numberLaser=numberLaser;
+				attacks.numberLight=numberLight;
 				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "PURPLE1") 
@@ -53,9 +53,9 @@ public class ChoosePart : MonoBehaviour {
 				numberMissile = 35;
 				numberLaser = 7;
 				numberLight = 3;
-				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
-				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
-				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				attacks.numberMissile=numberMissile;
+				attacks.numberLaser=numberLaser;
+				attacks.numberLight=numberLight;
 				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "PURPLE2") 
@@ -63,9 +63,9 @@ public class ChoosePart : MonoBehaviour {
 				numberMissile = 35;
 				numberLaser = 7;
 				numberLight = 3;
-				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
-				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
-				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				attacks.numberMissile=numberMissile;
+				attacks.numberLaser=numberLaser;
+				attacks.numberLight=numberLight;
 				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "WHITE3") 
@@ -73,9 +73,9 @@ public class ChoosePart : MonoBehaviour {
 				numberMissile = 15;
 				numberLaser = 3;
 				numberLight = 0;
-				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
-				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
-				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				attacks.numberMissile=numberMissile;
+				attacks.numberLaser=numberLaser;
+				attacks.numberLight=numberLight;
 				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "WHITE4") 
@@ -83,9 +83,9 @@ public class ChoosePart : MonoBehaviour {
 				numberMissile = 15;
 				numberLaser = 3;
 				numberLight = 0;
-				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
-				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
-				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				attacks.numberMissile=numberMissile;
+				attacks.numberLaser=numberLaser;
+				attacks.numberLight=numberLight;
 				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "WHITE5") 
@@ -93,9 +93,9 @@ public class ChoosePart : MonoBehaviour {
 				numberMissile = 15;
 				numberLaser = 3;
 				numberLight = 0;
-				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
-				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
-				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				attacks.numberMissile=numberMissile;
+				attacks.numberLaser=numberLaser;
+				attacks.numberLight=numberLight;
 				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "PURPLE3") 
@@ -103,9 +103,9 @@ public class ChoosePart : MonoBehaviour {
 				numberMissile = 35;
 				numberLaser = 7;
 				numberLight = 3;
-				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
-				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
-				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				attacks.numberMissile=numberMissile;
+				attacks.numberLaser=numberLaser;
+				attacks.numberLight=numberLight;
 				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "PURPLE4") 
@@ -113,9 +113,9 @@ public class ChoosePart : MonoBehaviour {
 				numberMissile = 35;
 				numberLaser = 7;
 				numberLight = 3;
-				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
-				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
-				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				attacks.numberMissile=numberMissile;
+				attacks.numberLaser=numberLaser;
+				attacks.numberLight=numberLight;
 				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "ORANGE1") 
@@ -123,9 +123,9 @@ public class ChoosePart : MonoBehaviour {
 				numberMissile = 25;
 				numberLaser = 5;
 				numberLight = 0;
-				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
-				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
-				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				attacks.numberMissile=numberMissile;
+				attacks.numberLaser=numberLaser;
+				attacks.numberLight=numberLight;
 				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "ORANGE2") 
@@ -133,9 +133,9 @@ public class ChoosePart : MonoBehaviour {
 				numberMissile = 25;
 				numberLaser = 5;
 				numberLight = 0;
-				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
-				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
-				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				attacks.numberMissile=numberMissile;
+				attacks.numberLaser=numberLaser;
+				attacks.numberLight=numberLight;
 				SceneManager.LoadScene("PlayerController1");
 			}
 			if (hit.collider.name == "ORANGE3") 
@@ -143,9 +143,9 @@ public class ChoosePart : MonoBehaviour {
 				numberMissile = 25;
 				numberLaser = 5;
 				numberLight = 0;
-				attacks.GetComponent<Attacks1> ().numberMissile=numberMissile;
-				attacks.GetComponent<Attacks1> ().numberLaser=numberLaser;
-				attacks.GetComponent<Attacks1> ().numberLight=numberLight;
+				attacks.numberMissile=numberMissile;
+				attacks.numberLaser=numberLaser;
+				attacks.numberLight=numberLight;
 				SceneManager.LoadScene("PlayerController1");
 			}
 

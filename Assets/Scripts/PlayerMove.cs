@@ -8,7 +8,13 @@ public class PlayerMove : MonoBehaviour {
 	public GameObject meteor;
 
 	private Vector3 initialPosition;
+	private Vector3 position;
 	private Touch touch;
+	private float posZup=0;
+	private float posZdown=0;
+	private float posXRight=0;
+	private float posXLeft=0;
+	Vector3 rotation;
 
 	private Vector3 pos;
 	bool falling=true;
@@ -17,10 +23,13 @@ public class PlayerMove : MonoBehaviour {
 		Time.timeScale = 1;
 		this.initialPosition = this.transform.localPosition;
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
+		//rotation = new Vector3 (Time.deltaTime * 10, Time.deltaTime * 10, Time.deltaTime * 10);
+		meteor.GetComponent<Rigidbody> ().freezeRotation = false;
 	}
 
 	void Update(){
 		MoveUpdate ();
+		position = this.transform.position;
 
 	}
 
@@ -32,11 +41,26 @@ public class PlayerMove : MonoBehaviour {
 				pos = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 1.5f));
 			}
 		}
-		transform.position = new Vector3 (pos.x, pos.y -1.5f, pos.z+0.1f);
 
 		if (GameObject.Find ("Settings") != null) {
 			float dis = GameObject.Find ("Settings").GetComponent<SettingGame> ().camera;
 			transform.position = new Vector3 (pos.x, pos.y -1.5f + dis, pos.z+0.1f);
+		}
+		//if(posZup==0 && posZdown==0 && posXLeft==0 && posXRight==0){
+			//transform.Rotate(rotation);
+		//}
+		if (meteor.transform.position.z <= 46) {
+			this.transform.Translate (0, 0, posZup);
+		}
+		if (meteor.transform.position.z >= 43.8) {
+			this.transform.Translate (0, 0, posZdown);
+		}
+
+		if (meteor.transform.position.x <= 1.8) {
+			this.transform.Translate (posXRight, 0,0 );
+		}
+		if (meteor.transform.position.x >= -1.8) {
+			this.transform.Translate (posXLeft, 0,0 );
 		}
 	}
 
@@ -65,5 +89,93 @@ public class PlayerMove : MonoBehaviour {
 	IEnumerator Seconds(){
 		yield return new WaitForSeconds (5f);
 		speed = 0.00000001f;
+	}
+
+	public void GoUp(){
+		if (meteor.transform.position.z <= 46) {
+			
+			posZup = 1.5f*Time.deltaTime;
+		}
+	}
+
+	public void GoDown(){
+		if (meteor.transform.position.z >= 43.8) {
+			
+			posZdown = -1.5f*Time.deltaTime;
+		}
+	}
+
+	public void GoRight(){
+		if (meteor.transform.position.x <= 1.8) {
+			
+			posXRight = 1.5f*Time.deltaTime;
+		}
+	}
+
+	public void GoLeft(){
+		if (meteor.transform.position.x >= -1.8) {
+
+			posXLeft = -1.5f*Time.deltaTime;
+		}
+	}
+
+	public void GoLeftDown(){
+		if (meteor.transform.position.x >= -1.8) {
+
+			posXLeft = -1.5f*Time.deltaTime;
+		}
+
+		if (meteor.transform.position.z >= 43.8) {
+
+			posZdown = -1.5f*Time.deltaTime;
+		}
+	}
+
+	public void GoLeftUp(){
+		if (meteor.transform.position.x >= -1.8) {
+
+			posXLeft = -1.5f*Time.deltaTime;
+		}
+
+		if (meteor.transform.position.z <= 46) {
+
+			posZup = 1.5f*Time.deltaTime;
+		}
+	}
+
+	public void GoRightDown(){
+		if (meteor.transform.position.x <= 1.8) {
+
+			posXRight = 1.5f*Time.deltaTime;
+		}
+
+		if (meteor.transform.position.z >= 43.5) {
+
+			posZdown = -1.5f*Time.deltaTime;
+		}
+	}
+
+	public void GoRightUp(){
+		if (meteor.transform.position.x <= 1.8) {
+
+			posXRight = 1.5f*Time.deltaTime;
+		}
+
+		if (meteor.transform.position.z <= 46) {
+
+			posZup = 1.5f*Time.deltaTime;
+		}
+	}
+
+
+
+
+
+	public void Anything(){
+		//rotation = new Vector3 (0, 0, Time.deltaTime * 10);
+		posZup = 0;
+		posZdown = 0;
+		posXRight=0;
+		posXLeft=0;
 	}
 }

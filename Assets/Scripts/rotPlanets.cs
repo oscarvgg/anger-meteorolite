@@ -35,7 +35,7 @@ public class rotPlanets : MonoBehaviour {
 		if (target)
 		{
 
-			if (Input.touches.Length==2)
+			if (Input.touches.Length==2 || Input.GetMouseButtonUp(1))
 			{
 				velocityX += xSpeed * Input.GetAxis("Mouse X") * distance * 0.02f;
 				velocityY += ySpeed * Input.GetAxis("Mouse Y") * 0.02f;

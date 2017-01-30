@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class Coins : MonoBehaviour {
 
 	public static Coins script;
-	public long coins;
-	public long actCoins;
+	public int coins;
+	public int actCoins;
 
 	void Awake(){
 		if (script == null) {

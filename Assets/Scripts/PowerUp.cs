@@ -6,25 +6,40 @@ using UnityEngine.SceneManagement;
 
 public class PowerUp : MonoBehaviour {
 
+	public Button back;
 	public Text tshield;
 	public Text tinvincible;
 	public Text tweight;
 	public Button bshield;
 	public Button binvincible;
 	public Button bweight;
-	public long coins;
-	long priceShield=1000000L;
-	long priceInvincible=1000000L;
-	long priceWeight=1000000L;
-	public long levelSh =0;
-	public long levelIn =0;
-	public long levelWe =0;
+	public Text textCoins;
+	public int coins;
+	int priceShield=1000000;
+	int priceInvincible=1000000;
+	int priceWeight=1000000;
+	public int levelSh;
+	public int levelIn;
+	public int levelWe;
 
 	// Use this for initialization
 	void Start () {
 		if (GameObject.Find ("Coins") != null) {
 			coins = GameObject.Find ("Coins").GetComponent<Coins> ().coins;
+			textCoins.text = ""+coins +" coins";
+		} else {
+			textCoins.text = "0"+" coins";
 		}
+
+		PowerUpsMeteor pu = GameObject.Find ("PowerUpsPlayer").GetComponent<PowerUpsMeteor> ();
+		Debug.Log (pu.lvInv);
+		levelIn = pu.lvInv;
+
+		levelSh = pu.lvShield;
+		levelWe = pu.lvWeight;
+		tshield.text="Lv." + pu.lvShield;
+		tinvincible.text="Lv." + pu.lvInv;
+		tweight.text="Lv." + pu.lvWeight;
 
 		
 	}
@@ -34,15 +49,10 @@ public class PowerUp : MonoBehaviour {
 		tshield.text = "Lv." + levelSh;
 		tinvincible.text = "Lv." + levelIn;
 		tweight.text = "Lv." + levelWe;
-		priceShield=1000000L*(levelSh+1);
-		priceInvincible=1000000L*(levelIn+1);
-		priceWeight=1000000L*(levelWe+1);
-		if (GameObject.Find ("PowerUpsPlayer") != null) {
-			PowerUpsMeteor pum = GameObject.Find ("PowerUpsPlayer").GetComponent<PowerUpsMeteor> ();
-			pum.lvInv = levelIn;
-			pum.lvShield = levelSh;
-			pum.lvWeight = levelWe;
-		}
+		priceShield=1000000*(levelSh+1);
+		priceInvincible=1000000*(levelIn+1);
+		priceWeight=1000000*(levelWe+1);
+
 		if (coins >= priceShield) {
 			bshield.interactable = true;
 		} else {
@@ -69,6 +79,10 @@ public class PowerUp : MonoBehaviour {
 		if (coins >= priceInvincible) {
 			coins = coins - priceInvincible;
 			levelIn++;
+			if (GameObject.Find ("PowerUpsPlayer") != null) {
+				PowerUpsMeteor pum = GameObject.Find ("PowerUpsPlayer").GetComponent<PowerUpsMeteor> ();
+				pum.lvInv = levelIn;
+			}
 		}
 	}
 
@@ -77,6 +91,10 @@ public class PowerUp : MonoBehaviour {
 		if (coins >= priceWeight) {
 			coins = coins - priceWeight;
 			levelWe++;
+			if (GameObject.Find ("PowerUpsPlayer") != null) {
+				PowerUpsMeteor pum = GameObject.Find ("PowerUpsPlayer").GetComponent<PowerUpsMeteor> ();
+				pum.lvWeight = levelWe;
+			}
 		}
 	}
 
@@ -86,10 +104,15 @@ public class PowerUp : MonoBehaviour {
 			Debug.Log (priceShield);
 			coins = coins - priceShield;
 			levelSh++;
+			if (GameObject.Find ("PowerUpsPlayer") != null) {
+				PowerUpsMeteor pum = GameObject.Find ("PowerUpsPlayer").GetComponent<PowerUpsMeteor> ();
+				pum.lvShield = levelSh;
+			}
 		}
 	}
 
 	public void GoBack(){
+		back.GetComponent<Image> ().color = Color.grey;
 		SceneManager.LoadScene ("MAINPAGE");
 	}
 }

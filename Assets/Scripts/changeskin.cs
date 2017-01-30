@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class changeskin : MonoBehaviour
 {
-	
+	public Button back;
 	public GameObject original;
 	public Material meteor;
 	public Texture basket;
@@ -70,6 +71,7 @@ public class changeskin : MonoBehaviour
 	}
 	public void GoBack()
 	{
+		back.GetComponent<Image> ().color = Color.grey;
 		SceneManager.LoadScene("MAINPAGE");
 
 	}

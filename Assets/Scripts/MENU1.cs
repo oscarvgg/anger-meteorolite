@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class MENU1 : MonoBehaviour
 
 {
+	public Button backB;
 	public Toggle bgm;
 	public Toggle far;
 	public Toggle medium;
@@ -17,10 +18,10 @@ public class MENU1 : MonoBehaviour
 	void Start(){
 	}
 
-    public void SetBackButton()
-    {
-        SceneManager.LoadScene("MAINPAGE");
-    }
+	public void GoBack(){
+		backB.GetComponent<Image> ().color = Color.grey;
+		SceneManager.LoadScene ("MAINPAGE");
+	}
 
 	public void BGM(bool newvalue){
 		AudioSource asour=GameObject.Find("Main Camera").GetComponent<AudioSource> ();

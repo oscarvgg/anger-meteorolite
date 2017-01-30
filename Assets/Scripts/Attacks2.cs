@@ -9,7 +9,18 @@ public class Attacks2 : MonoBehaviour {
 	public int numberAxe = 5;
 	public int numberStone = 1;
 
+	public static Attacks2 script;
 
+
+	void Awake(){
+		if (script == null) {
+			script = this;
+			DontDestroyOnLoad (gameObject);
+		} else if (script != this) {
+
+			Destroy (gameObject);
+		}
+	}
 	void Update()
 	{
 		if (GameObject.Find ("planet2") != null) {
@@ -17,7 +28,6 @@ public class Attacks2 : MonoBehaviour {
 			numberArrow = choose.numberArrow;
 			numberAxe = choose.numberAxe;
 			numberStone = choose.numberStone;
-			DontDestroyOnLoad (gameObject);
 		}
 
 		}

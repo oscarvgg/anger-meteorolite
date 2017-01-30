@@ -35,14 +35,14 @@ public class ObjectPoolScript : MonoBehaviour
 		{
 			GameObject obj = (GameObject)Instantiate(missileObject);
 			obj.SetActive(true);
-			obj.transform.position = new Vector3 (Random.Range (valueX - 0.5f, valueX + 0.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 0.5f, valueZ + 0.5f));
+			obj.transform.position = new Vector3 (Random.Range (valueX - 1.5f, valueX + 1.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 1.5f, valueZ + 1.5f));
 			pooledObjects.Add(obj);
 		}
 		for(int i = 0; i < laserAmount; i++)
 		{
 			GameObject obj = (GameObject)Instantiate(laserObject);
 			obj.SetActive(true);
-			obj.transform.position = new Vector3 (Random.Range (valueX - 0.5f, valueX + 0.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 0.5f, valueZ + 0.5f));
+			obj.transform.position = new Vector3 (Random.Range (valueX - 1.5f, valueX + 1.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 1.5f, valueZ + 1.5f));
 			laserObjects.Add(obj);
 		}
 
@@ -50,7 +50,7 @@ public class ObjectPoolScript : MonoBehaviour
 		{
 			GameObject obj = (GameObject)Instantiate(lightObject);
 			obj.SetActive(true);
-			obj.transform.position = new Vector3 (Random.Range (valueX - 0.5f, valueX + 0.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 0.5f, valueZ + 0.5f));
+			obj.transform.position = new Vector3 (Random.Range (valueX - 1.5f, valueX + 1.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 1.5f, valueZ + 1.5f));
 			lightObjects.Add(obj);
 		}
 

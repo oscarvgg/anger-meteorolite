@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class PowerUpsMeteor : MonoBehaviour {
 
-	public long lvShield=0;
-	public long lvInv=0;
-	public long lvWeight=0;
+	public int lvShield=0;
+	public int lvInv=0;
+	public int lvWeight=0;
 
+	public static PowerUpsMeteor script;
 
+	void Awake(){
+		if (script == null) {
+			script = this;
+			DontDestroyOnLoad (gameObject);
+		} else if (script != this) {
+
+			Destroy (gameObject);
+		}
+	}
 	// Update is called once per frame
 	void Start () {
 		if (GameObject.Find ("Buttons") != null) {
@@ -16,6 +26,9 @@ public class PowerUpsMeteor : MonoBehaviour {
 			pu.levelIn = lvInv;
 			pu.levelSh = lvShield;
 			pu.levelWe = lvWeight;
+			pu.tshield.text="Lv." + lvShield;
+			pu.tinvincible.text="Lv." + lvInv;
+			pu.tweight.text="Lv." + lvWeight;
 		}
 		if (GameObject.Find ("GameController")!=null) {
 			PauseMenu pum = GameObject.Find ("GameController").GetComponent<PauseMenu> ();
@@ -29,6 +42,5 @@ public class PowerUpsMeteor : MonoBehaviour {
 				pum.shield.gameObject.SetActive (false);
 			}
 		}
-		DontDestroyOnLoad (gameObject);
 	}
 }

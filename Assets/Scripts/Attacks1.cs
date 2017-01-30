@@ -8,7 +8,18 @@ public class Attacks1 : MonoBehaviour {
 	public int numberMissile = 10;
 	public int numberLaser = 5;
 	public int numberLight = 1;
+	public static Attacks1 script;
 
+
+	void Awake(){
+		if (script == null) {
+			script = this;
+			DontDestroyOnLoad (gameObject);
+		} else if (script != this) {
+
+			Destroy (gameObject);
+		}
+	}
 
 	void Update()
 	{
@@ -17,7 +28,6 @@ public class Attacks1 : MonoBehaviour {
 			numberMissile = choose.numberMissile;
 			numberLaser = choose.numberLaser;
 			numberLight = choose.numberLight;
-			DontDestroyOnLoad (gameObject);
 		}
 
 		}
