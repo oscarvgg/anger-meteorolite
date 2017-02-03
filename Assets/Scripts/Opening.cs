@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Opening : MonoBehaviour {
 
-	public GameObject team, polimi;
+	public GameObject team, polimi, polimigame;
 	// Use this for initialization
 	void Start () {
-		team.SetActive (true);
-		polimi.SetActive (false);
-		StartCoroutine (Team());
+		team.SetActive (false);
+		polimi.SetActive (true);
+		polimigame.SetActive (false);
+		StartCoroutine (Polimi());
 	}
 	
 	// Update is called once per frame
@@ -18,14 +19,21 @@ public class Opening : MonoBehaviour {
 		
 	}
 
-	IEnumerator Team(){
+	IEnumerator Polimi(){
 		yield return new WaitForSeconds(3f);
-		team.SetActive (false);
-		polimi.SetActive (true);
-		StartCoroutine (Polimi());
+		polimi.SetActive (false);
+		polimigame.SetActive (true);
+		StartCoroutine (PolimiGame());
 	}
 
-	IEnumerator Polimi(){
+	IEnumerator PolimiGame(){
+		yield return new WaitForSeconds(3f);
+		polimigame.SetActive (false);
+		team.SetActive (true);
+		StartCoroutine (Team());
+	}
+
+	IEnumerator Team(){
 		yield return new WaitForSeconds(3f);
 		SceneManager.LoadScene ("MAINPAGE");
 	}
