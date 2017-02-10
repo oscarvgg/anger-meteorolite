@@ -6,6 +6,7 @@ public class PlayerController2 : MonoBehaviour {
 	public GameObject gameControllerObject;
 	public GameObject explosion;
 	public GameObject camera;
+	public GameObject respawn;
 	public GameObject meteor;
 	public GameObject mete0;
 	/// Speed in which the player moves vertically and horizontally
@@ -31,7 +32,7 @@ public class PlayerController2 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Rotate(new Vector3(Time.deltaTime*10,Time.deltaTime*10,Time.deltaTime*10));
+		//transform.Rotate(new Vector3(Time.deltaTime*10,Time.deltaTime*10,Time.deltaTime*10));
 	}
 
 

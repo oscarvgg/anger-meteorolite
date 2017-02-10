@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class changeskin : MonoBehaviour
 {
-    //  public string changeskin1 = "GameOver";
-    public GameObject original;
+	public Button back;
+	public GameObject original;
 	public Material meteor;
 	public Texture basket;
 	public Texture orange;
@@ -15,9 +16,9 @@ public class changeskin : MonoBehaviour
 	public Texture magic;
 
 
-    // Use this for initialization
-    public void ChangeToSceneNext()
-    {
+	// Use this for initialization
+	public void ChangeToSceneNext()
+	{
 		if (original.GetComponent<Renderer> ().material.mainTexture == meteor.mainTexture) {
 			original.GetComponent<Renderer> ().sharedMaterial.mainTexture = orange;
 			GameObject.Find ("TypeSkin").GetComponent<Skin> ().skin = orange;
@@ -38,11 +39,11 @@ public class changeskin : MonoBehaviour
 		}else{
 			original.GetComponent<Renderer> ().sharedMaterial.mainTexture=meteor.mainTexture;
 			GameObject.Find ("TypeSkin").GetComponent<Skin> ().skin = meteor.mainTexture;
-        }
+		}
 
-    }
-    public void ChangeToSceneBack()
-    {
+	}
+	public void ChangeToSceneBack()
+	{
 
 		if (original.GetComponent<Renderer> ().material.mainTexture==meteor.mainTexture){
 			original.GetComponent<Renderer> ().sharedMaterial.mainTexture=magic;
@@ -68,10 +69,11 @@ public class changeskin : MonoBehaviour
 
 
 	}
-    public void GoBack()
-    {
-        SceneManager.LoadScene("MAINPAGE");
+	public void GoBack()
+	{
+		back.GetComponent<Image> ().color = Color.grey;
+		SceneManager.LoadScene("MAINPAGE");
 
-    }
+	}
 
 }

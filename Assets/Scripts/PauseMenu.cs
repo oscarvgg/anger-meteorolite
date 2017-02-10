@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour {
 	public Transform canvas;
 	public GameObject laser;
+	public GameObject controls;
 	public Transform power;
 	public Transform player;
 	public GameObject skin;
 	public GameObject inv;
 	public GameObject weight;
 	public GameObject shield;
+	public GameObject meteor;
+
 
 
 
@@ -27,15 +30,33 @@ public class PauseMenu : MonoBehaviour {
 	{
 		if (canvas.gameObject.activeInHierarchy == false)
 		{
-			
+			if (GameObject.Find ("Laser") != null) {
+				Laser las = GameObject.Find ("Laser").GetComponent<Laser> ();
+				las.speed = 0;
+			}
+			if (GameObject.Find ("SlowLight") != null) {
+				Light lig = GameObject.Find ("SlowLight").GetComponent<Light> ();
+				lig.speed = 0;
+			}
 			canvas.gameObject.SetActive(true);
+			controls.SetActive (false);
+			meteor.SetActive (false);
 			Time.timeScale = 0;
 
 		}
 		else
 		{
-
+			if (GameObject.Find ("Laser") != null) {
+				Laser las = GameObject.Find ("Laser").GetComponent<Laser> ();
+				las.speed = -6;
+			}
+			if (GameObject.Find ("Slowlight") != null) {
+				Light lig = GameObject.Find ("Slowlight").GetComponent<Light> ();
+				lig.speed = -5;
+			}
 			canvas.gameObject.SetActive(false);
+			controls.SetActive (true);
+			meteor.SetActive (true);
 			Time.timeScale = 1;
 		}
 	}
@@ -46,6 +67,8 @@ public class PauseMenu : MonoBehaviour {
 
 	public void Resume(){
 		canvas.gameObject.SetActive(false);
+		meteor.SetActive (true);
+		controls.SetActive (true);
 		Time.timeScale = 1;
 	}
 
@@ -62,15 +85,31 @@ public class PauseMenu : MonoBehaviour {
 			if (pum.lvWeight == 0) {
 				weight.SetActive (false);
 			}
-
+			if (GameObject.Find ("Laser") != null) {
+				Laser las = GameObject.Find ("Laser").GetComponent<Laser> ();
+				las.speed = 0;
+			}
+			if (GameObject.Find ("SlowLight") != null) {
+				Light lig = GameObject.Find ("SlowLight").GetComponent<Light> ();
+				lig.speed = 0;
+			}
 			power.gameObject.SetActive(true);
+			controls.SetActive (false);
 			Time.timeScale = 0;
 
 		}
 		else
 		{
-			
+			if (GameObject.Find ("Laser") != null) {
+				Laser las = GameObject.Find ("Laser").GetComponent<Laser> ();
+				las.speed = -6;
+			}
+			if (GameObject.Find ("SlowLight") != null) {
+				Light lig = GameObject.Find ("SlowLight").GetComponent<Light> ();
+				lig.speed = -5;
+			}
 			power.gameObject.SetActive(false);
+			controls.SetActive (true);
 			Time.timeScale = 1;
 		}
 	}
@@ -79,6 +118,7 @@ public class PauseMenu : MonoBehaviour {
 		skin.gameObject.SetActive (true);
 		GameObject.Find ("Meteor").GetComponent<Weight> ().inv = true;
 		power.gameObject.SetActive(false);
+		controls.SetActive (true);
 		Time.timeScale = 1;
 		StartCoroutine (TimeInv());
 	}

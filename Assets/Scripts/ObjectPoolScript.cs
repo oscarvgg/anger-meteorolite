@@ -11,17 +11,12 @@ public class ObjectPoolScript : MonoBehaviour
 	public GameObject building2;
 	public GameObject building3;
 	public GameObject building4;
-	public GameObject meteor;
 	public bool willGrow = true;
 
 	public List<GameObject> pooledObjects;
 	public List<GameObject> laserObjects;
 	public List<GameObject> lightObjects;
 
-	float secondsCounter=0;
-	float secondsToCount=2;
-	float secondsCounter2=0;
-	float secondsToCount2=3;
 	int laserAmount;
 	int missileAmount;
 	int lightAmount;
@@ -32,22 +27,22 @@ public class ObjectPoolScript : MonoBehaviour
 		laserAmount = choosePart.numberLaser;
 		missileAmount = choosePart.numberMissile;
 		lightAmount = choosePart.numberLight;
-		float valueX = meteor.transform.position.x;
-		float valueY = meteor.transform.position.y;
-		float valueZ = meteor.transform.position.z;
+		float valueX = missileObject.transform.position.x;
+		float valueY = missileObject.transform.position.y;
+		float valueZ = missileObject.transform.position.z;
 		pooledObjects = new List<GameObject>();
 		for(int i = 0; i < missileAmount; i++)
 		{
 			GameObject obj = (GameObject)Instantiate(missileObject);
 			obj.SetActive(true);
-			obj.transform.position = new Vector3 (Random.Range (valueX - 1f, valueX + 1f), Random.Range (-200f, 400f), Random.Range (valueZ - 1f, valueZ + 1f));
+			obj.transform.position = new Vector3 (Random.Range (valueX - 1.5f, valueX + 1.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 1.5f, valueZ + 1.5f));
 			pooledObjects.Add(obj);
 		}
 		for(int i = 0; i < laserAmount; i++)
 		{
 			GameObject obj = (GameObject)Instantiate(laserObject);
 			obj.SetActive(true);
-			obj.transform.position = new Vector3 (Random.Range (valueX - 1f, valueX + 1f), Random.Range (-200f, 400f), Random.Range (valueZ - 1f, valueZ + 1f));
+			obj.transform.position = new Vector3 (Random.Range (valueX - 1.5f, valueX + 1.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 1.5f, valueZ + 1.5f));
 			laserObjects.Add(obj);
 		}
 
@@ -55,7 +50,7 @@ public class ObjectPoolScript : MonoBehaviour
 		{
 			GameObject obj = (GameObject)Instantiate(lightObject);
 			obj.SetActive(true);
-			obj.transform.position = new Vector3 (Random.Range (valueX - 1f, valueX + 1f),Random.Range (-200f, 400f), Random.Range (valueZ - 1f, valueZ + 1f));
+			obj.transform.position = new Vector3 (Random.Range (valueX - 1.5f, valueX + 1.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 1.5f, valueZ + 1.5f));
 			lightObjects.Add(obj);
 		}
 

@@ -36,14 +36,14 @@ public class ObjectPoolScriptPlanet2 : MonoBehaviour
 		{
 			GameObject obj = (GameObject)Instantiate(arrowObject);
 			obj.SetActive(true);
-			obj.transform.position = new Vector3 (Random.Range (valueX - 0.5f, valueX + 0.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 0.5f, valueZ + 0.5f));
+			obj.transform.position = new Vector3 (Random.Range (valueX - 1.5f, valueX + 1.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 1.5f, valueZ + 1.5f));
 			pooledObjects.Add(obj);
 		}
 		for(int i = 0; i < axeAmount; i++)
 		{
 			GameObject obj = (GameObject)Instantiate(axeObject);
 			obj.SetActive(true);
-			obj.transform.position = new Vector3 (Random.Range (valueX - 0.5f, valueX + 0.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 0.5f, valueZ + 0.5f));
+			obj.transform.position = new Vector3 (Random.Range (valueX - 1.5f, valueX + 1.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 1.5f, valueZ + 1.5f));
 			axeObjects.Add(obj);
 		}
 
@@ -51,7 +51,7 @@ public class ObjectPoolScriptPlanet2 : MonoBehaviour
 		{
 			GameObject obj = (GameObject)Instantiate(stoneObject);
 			obj.SetActive(true);
-			obj.transform.position = new Vector3 (Random.Range (valueX - 0.5f, valueX + 0.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 0.5f, valueZ + 0.5f));
+			obj.transform.position = new Vector3 (Random.Range (valueX - 1.5f, valueX + 1.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 1.5f, valueZ + 1.5f));
 			stoneObjects.Add(obj);
 		}
 

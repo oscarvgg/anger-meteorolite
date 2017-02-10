@@ -9,23 +9,23 @@ public class ChoosePart3 : MonoBehaviour {
 	public int numberSword = 10;
 	public int numberRock = 5;
 	public int numberTrishula = 1;
-	public GameObject attacks;
 
 
 	void Update()
 	{
+		Attacks3 attacks = GameObject.Find ("Attacks3").GetComponent<Attacks3> ();
 		var rotationComponent = this.gameObject.GetComponent(typeof(rotPlanets)) as rotPlanets;
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonUp(0) && !rotationComponent.isRotating)
+		if (Physics.Raycast(ray, out hit) && (Input.touches.Length==1 || Input.GetMouseButtonUp(0)) && !rotationComponent.isRotating)
 		{
 			if (hit.collider.name == "WHITE") 
 			{
 				numberSword = 10;
 				numberRock = 5;
 				numberTrishula = 1;
-				attacks.GetComponent<Attacks3> ().numberSword=numberSword;
-				attacks.GetComponent<Attacks3> ().numberRock=numberRock;
-				attacks.GetComponent<Attacks3> ().numberTrishula=numberTrishula;
+				attacks.numberSword=numberSword;
+				attacks.numberRock=numberRock;
+				attacks.numberTrishula=numberTrishula;
 				SceneManager.LoadScene("PlayerController3");
 			}
 			if (hit.collider.name == "WHITE2") 
@@ -33,9 +33,9 @@ public class ChoosePart3 : MonoBehaviour {
 				numberSword = 10;
 				numberRock = 5;
 				numberTrishula = 1;
-				attacks.GetComponent<Attacks3> ().numberSword=numberSword;
-				attacks.GetComponent<Attacks3> ().numberRock=numberRock;
-				attacks.GetComponent<Attacks3> ().numberTrishula=numberTrishula;
+				attacks.numberSword=numberSword;
+				attacks.numberRock=numberRock;
+				attacks.numberTrishula=numberTrishula;
 				SceneManager.LoadScene("PlayerController3");
 			}
 			if (hit.collider.name == "BLUE1") 
@@ -43,9 +43,9 @@ public class ChoosePart3 : MonoBehaviour {
 				numberSword = 30;
 				numberRock = 15;
 				numberTrishula = 6;
-				attacks.GetComponent<Attacks3> ().numberSword=numberSword;
-				attacks.GetComponent<Attacks3> ().numberRock=numberRock;
-				attacks.GetComponent<Attacks3> ().numberTrishula=numberTrishula;
+				attacks.numberSword=numberSword;
+				attacks.numberRock=numberRock;
+				attacks.numberTrishula=numberTrishula;
 				SceneManager.LoadScene("PlayerController3");
 			}
 			if (hit.collider.name == "PURPLE1") 
@@ -53,9 +53,9 @@ public class ChoosePart3 : MonoBehaviour {
 				numberSword = 23;
 				numberRock = 10;
 				numberTrishula = 4;
-				attacks.GetComponent<Attacks3> ().numberSword=numberSword;
-				attacks.GetComponent<Attacks3> ().numberRock=numberRock;
-				attacks.GetComponent<Attacks3> ().numberTrishula=numberTrishula;
+				attacks.numberSword=numberSword;
+				attacks.numberRock=numberRock;
+				attacks.numberTrishula=numberTrishula;
 				SceneManager.LoadScene("PlayerController3");
 
 			}
@@ -63,9 +63,9 @@ public class ChoosePart3 : MonoBehaviour {
 				numberSword = 23;
 				numberRock = 10;
 				numberTrishula = 4;
-				attacks.GetComponent<Attacks3> ().numberSword=numberSword;
-				attacks.GetComponent<Attacks3> ().numberRock=numberRock;
-				attacks.GetComponent<Attacks3> ().numberTrishula=numberTrishula;
+				attacks.numberSword=numberSword;
+				attacks.numberRock=numberRock;
+				attacks.numberTrishula=numberTrishula;
 				SceneManager.LoadScene("PlayerController3");
 			}
 			if (hit.collider.name == "WHITE3") 
@@ -73,9 +73,9 @@ public class ChoosePart3 : MonoBehaviour {
 				numberSword = 10;
 				numberRock = 5;
 				numberTrishula = 1;
-				attacks.GetComponent<Attacks3> ().numberSword=numberSword;
-				attacks.GetComponent<Attacks3> ().numberRock=numberRock;
-				attacks.GetComponent<Attacks3> ().numberTrishula=numberTrishula;
+				attacks.numberSword=numberSword;
+				attacks.numberRock=numberRock;
+				attacks.numberTrishula=numberTrishula;
 				SceneManager.LoadScene("PlayerController3");
 			}
 			if (hit.collider.name == "WHITE4") 
@@ -83,18 +83,18 @@ public class ChoosePart3 : MonoBehaviour {
 				numberSword = 10;
 				numberRock = 5;
 				numberTrishula = 1;
-				attacks.GetComponent<Attacks3> ().numberSword=numberSword;
-				attacks.GetComponent<Attacks3> ().numberRock=numberRock;
-				attacks.GetComponent<Attacks3> ().numberTrishula=numberTrishula;
+				attacks.numberSword=numberSword;
+				attacks.numberRock=numberRock;
+				attacks.numberTrishula=numberTrishula;
 				SceneManager.LoadScene("PlayerController3");
 			}
 			if (hit.collider.name == "WHITE5") {
 				numberSword = 10;
 				numberRock = 5;
 				numberTrishula = 1;
-				attacks.GetComponent<Attacks3> ().numberSword = numberSword;
-				attacks.GetComponent<Attacks3> ().numberRock = numberRock;
-				attacks.GetComponent<Attacks3> ().numberTrishula = numberTrishula;
+				attacks.numberSword=numberSword;
+				attacks.numberRock=numberRock;
+				attacks.numberTrishula=numberTrishula;
 				SceneManager.LoadScene ("PlayerController3");
 			}
 			if (hit.collider.name == "PURPLE3") 
@@ -102,9 +102,9 @@ public class ChoosePart3 : MonoBehaviour {
 				numberSword = 23;
 				numberRock = 10;
 				numberTrishula = 4;
-				attacks.GetComponent<Attacks3> ().numberSword=numberSword;
-				attacks.GetComponent<Attacks3> ().numberRock=numberRock;
-				attacks.GetComponent<Attacks3> ().numberTrishula=numberTrishula;
+				attacks.numberSword=numberSword;
+				attacks.numberRock=numberRock;
+				attacks.numberTrishula=numberTrishula;
 				SceneManager.LoadScene("PlayerController3");
 			}
 			if (hit.collider.name == "PURPLE4") 
@@ -112,9 +112,9 @@ public class ChoosePart3 : MonoBehaviour {
 				numberSword = 23;
 				numberRock = 10;
 				numberTrishula = 4;
-				attacks.GetComponent<Attacks3> ().numberSword=numberSword;
-				attacks.GetComponent<Attacks3> ().numberRock=numberRock;
-				attacks.GetComponent<Attacks3> ().numberTrishula=numberTrishula;
+				attacks.numberSword=numberSword;
+				attacks.numberRock=numberRock;
+				attacks.numberTrishula=numberTrishula;
 				SceneManager.LoadScene("PlayerController3");
 			}
 			if (hit.collider.name == "ORANGE1") 
@@ -122,9 +122,9 @@ public class ChoosePart3 : MonoBehaviour {
 				numberSword = 20;
 				numberRock = 7;
 				numberTrishula = 2;
-				attacks.GetComponent<Attacks3> ().numberSword=numberSword;
-				attacks.GetComponent<Attacks3> ().numberRock=numberRock;
-				attacks.GetComponent<Attacks3> ().numberTrishula=numberTrishula;
+				attacks.numberSword=numberSword;
+				attacks.numberRock=numberRock;
+				attacks.numberTrishula=numberTrishula;
 				SceneManager.LoadScene("PlayerController3");
 			}
 			if (hit.collider.name == "ORANGE2") 
@@ -132,9 +132,9 @@ public class ChoosePart3 : MonoBehaviour {
 				numberSword = 20;
 				numberRock = 7;
 				numberTrishula = 2;
-				attacks.GetComponent<Attacks3> ().numberSword=numberSword;
-				attacks.GetComponent<Attacks3> ().numberRock=numberRock;
-				attacks.GetComponent<Attacks3> ().numberTrishula=numberTrishula;
+				attacks.numberSword=numberSword;
+				attacks.numberRock=numberRock;
+				attacks.numberTrishula=numberTrishula;
 				SceneManager.LoadScene("PlayerController3");
 			}
 			if (hit.collider.name == "ORANGE3") 
@@ -142,9 +142,9 @@ public class ChoosePart3 : MonoBehaviour {
 				numberSword = 20;
 				numberRock = 7;
 				numberTrishula = 2;
-				attacks.GetComponent<Attacks3> ().numberSword=numberSword;
-				attacks.GetComponent<Attacks3> ().numberRock=numberRock;
-				attacks.GetComponent<Attacks3> ().numberTrishula=numberTrishula;
+				attacks.numberSword=numberSword;
+				attacks.numberRock=numberRock;
+				attacks.numberTrishula=numberTrishula;
 				SceneManager.LoadScene("PlayerController3");
 			}
 

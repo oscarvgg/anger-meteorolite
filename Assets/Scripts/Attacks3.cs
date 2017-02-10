@@ -8,7 +8,18 @@ public class Attacks3 : MonoBehaviour {
 	public int numberSword = 10;
 	public int numberRock = 5;
 	public int numberTrishula = 1;
+	public static Attacks3 script;
 
+
+	void Awake(){
+		if (script == null) {
+			script = this;
+			DontDestroyOnLoad (gameObject);
+		} else if (script != this) {
+
+			Destroy (gameObject);
+		}
+	}
 
 	void Update()
 	{
@@ -17,7 +28,6 @@ public class Attacks3 : MonoBehaviour {
 			numberSword = choose.numberSword;
 			numberRock = choose.numberRock;
 			numberTrishula = choose.numberTrishula;
-			DontDestroyOnLoad (gameObject);
 		}
 
 		}

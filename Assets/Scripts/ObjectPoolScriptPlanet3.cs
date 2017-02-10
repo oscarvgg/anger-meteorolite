@@ -35,7 +35,7 @@ public class ObjectPoolScriptPlanet3 : MonoBehaviour
 		{
 			GameObject obj = (GameObject)Instantiate(swordObject);
 			obj.SetActive(true);
-			obj.transform.position = new Vector3 (Random.Range (valueX - 0.5f, valueX + 0.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 0.5f, valueZ + 0.5f));
+			obj.transform.position = new Vector3 (Random.Range (valueX - 1.5f, valueX + 1.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 1.5f, valueZ + 1.5f));
 			pooledObjects.Add(obj);
 		}
 		for(int i = 0; i < rockAmount; i++)
@@ -50,7 +50,7 @@ public class ObjectPoolScriptPlanet3 : MonoBehaviour
 		{
 			GameObject obj = (GameObject)Instantiate(trishulaObject);
 			obj.SetActive(true);
-			obj.transform.position = new Vector3 (Random.Range (valueX - 1f, valueX + 1f),Random.Range(-200f, 400f), Random.Range (valueZ - 1f, valueZ + 1f));
+			obj.transform.position = new Vector3 (Random.Range (valueX - 1.5f, valueX + 1.5f), Random.Range (-200f, 400f), Random.Range (valueZ - 1.5f, valueZ + 1.5f));
 			trishulaObjects.Add(obj);
 		}
 
@@ -76,10 +76,10 @@ public class ObjectPoolScriptPlanet3 : MonoBehaviour
 		}
 
 
-		}
+	}
 
-	
-		
+
+
 
 
 

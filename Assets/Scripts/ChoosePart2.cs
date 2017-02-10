@@ -9,23 +9,24 @@ public class ChoosePart2 : MonoBehaviour {
 	public int numberArrow = 10;
 	public int numberAxe = 5;
 	public int numberStone = 1;
-	public GameObject attacks;
+
 
 
 	void Update()
 	{
+		Attacks2 attacks = GameObject.Find ("Attacks2").GetComponent<Attacks2> ();
 		var rotationComponent = this.gameObject.GetComponent(typeof(rotPlanets)) as rotPlanets;
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(ray, out hit) && Input.GetMouseButtonUp(0) && !rotationComponent.isRotating)
+		if (Physics.Raycast(ray, out hit) && (Input.touches.Length==1 || Input.GetMouseButtonUp(0)) && !rotationComponent.isRotating)
 		{
 			if (hit.collider.name == "WHITE") 
 			{
 				numberArrow = 10;
 				numberAxe = 5;
 				numberStone = 1;
-				attacks.GetComponent<Attacks2> ().numberArrow=numberArrow;
-				attacks.GetComponent<Attacks2> ().numberAxe=numberAxe;
-				attacks.GetComponent<Attacks2> ().numberStone=numberStone;
+				attacks.numberArrow=numberArrow;
+				attacks.numberAxe=numberAxe;
+				attacks.numberStone=numberStone;
 				SceneManager.LoadScene("PlayerController2");
 			}
 			if (hit.collider.name == "WHITE2") 
@@ -33,9 +34,9 @@ public class ChoosePart2 : MonoBehaviour {
 				numberArrow = 10;
 				numberAxe = 5;
 				numberStone = 1;
-				attacks.GetComponent<Attacks2> ().numberArrow=numberArrow;
-				attacks.GetComponent<Attacks2> ().numberAxe=numberAxe;
-				attacks.GetComponent<Attacks2> ().numberStone=numberStone;
+				attacks.numberArrow=numberArrow;
+				attacks.numberAxe=numberAxe;
+				attacks.numberStone=numberStone;
 				SceneManager.LoadScene("PlayerController2");
 			}
 			if (hit.collider.name == "BLUE1") 
@@ -43,9 +44,9 @@ public class ChoosePart2 : MonoBehaviour {
 				numberArrow = 30;
 				numberAxe = 15;
 				numberStone = 6;
-				attacks.GetComponent<Attacks2> ().numberArrow=numberArrow;
-				attacks.GetComponent<Attacks2> ().numberAxe=numberAxe;
-				attacks.GetComponent<Attacks2> ().numberStone=numberStone;
+				attacks.numberArrow=numberArrow;
+				attacks.numberAxe=numberAxe;
+				attacks.numberStone=numberStone;
 				SceneManager.LoadScene("PlayerController2");
 			}
 			if (hit.collider.name == "PURPLE1") 
@@ -53,9 +54,9 @@ public class ChoosePart2 : MonoBehaviour {
 				numberArrow = 23;
 				numberAxe = 10;
 				numberStone = 4;
-				attacks.GetComponent<Attacks2> ().numberArrow=numberArrow;
-				attacks.GetComponent<Attacks2> ().numberAxe=numberAxe;
-				attacks.GetComponent<Attacks2> ().numberStone=numberStone;
+				attacks.numberArrow=numberArrow;
+				attacks.numberAxe=numberAxe;
+				attacks.numberStone=numberStone;
 				SceneManager.LoadScene("PlayerController2");
 
 			}
@@ -64,9 +65,9 @@ public class ChoosePart2 : MonoBehaviour {
 				numberArrow = 23;
 				numberAxe = 10;
 				numberStone = 4;
-				attacks.GetComponent<Attacks2> ().numberArrow=numberArrow;
-				attacks.GetComponent<Attacks2> ().numberAxe=numberAxe;
-				attacks.GetComponent<Attacks2> ().numberStone=numberStone;
+				attacks.numberArrow=numberArrow;
+				attacks.numberAxe=numberAxe;
+				attacks.numberStone=numberStone;
 				SceneManager.LoadScene("PlayerController2");
 			}
 			if (hit.collider.name == "WHITE3") 
@@ -74,9 +75,9 @@ public class ChoosePart2 : MonoBehaviour {
 				numberArrow = 10;
 				numberAxe = 5;
 				numberStone = 1;
-				attacks.GetComponent<Attacks2> ().numberArrow=numberArrow;
-				attacks.GetComponent<Attacks2> ().numberAxe=numberAxe;
-				attacks.GetComponent<Attacks2> ().numberStone=numberStone;
+				attacks.numberArrow=numberArrow;
+				attacks.numberAxe=numberAxe;
+				attacks.numberStone=numberStone;
 				SceneManager.LoadScene("PlayerController2");
 			}
 			if (hit.collider.name == "WHITE4") 
@@ -84,9 +85,9 @@ public class ChoosePart2 : MonoBehaviour {
 				numberArrow = 10;
 				numberAxe = 5;
 				numberStone = 1;
-				attacks.GetComponent<Attacks2> ().numberArrow=numberArrow;
-				attacks.GetComponent<Attacks2> ().numberAxe=numberAxe;
-				attacks.GetComponent<Attacks2> ().numberStone=numberStone;
+				attacks.numberArrow=numberArrow;
+				attacks.numberAxe=numberAxe;
+				attacks.numberStone=numberStone;
 				SceneManager.LoadScene("PlayerController2");
 			}
 			if (hit.collider.name == "WHITE5") 
@@ -94,9 +95,9 @@ public class ChoosePart2 : MonoBehaviour {
 				numberArrow = 10;
 				numberAxe = 5;
 				numberStone = 1;
-				attacks.GetComponent<Attacks2> ().numberArrow=numberArrow;
-				attacks.GetComponent<Attacks2> ().numberAxe=numberAxe;
-				attacks.GetComponent<Attacks2> ().numberStone=numberStone;
+				attacks.numberArrow=numberArrow;
+				attacks.numberAxe=numberAxe;
+				attacks.numberStone=numberStone;
 				SceneManager.LoadScene("PlayerController2");
 			}
 			if (hit.collider.name == "PURPLE3") 
@@ -104,9 +105,9 @@ public class ChoosePart2 : MonoBehaviour {
 				numberArrow = 23;
 				numberAxe = 10;
 				numberStone = 4;
-				attacks.GetComponent<Attacks2> ().numberArrow=numberArrow;
-				attacks.GetComponent<Attacks2> ().numberAxe=numberAxe;
-				attacks.GetComponent<Attacks2> ().numberStone=numberStone;
+				attacks.numberArrow=numberArrow;
+				attacks.numberAxe=numberAxe;
+				attacks.numberStone=numberStone;
 				SceneManager.LoadScene("PlayerController2");
 			}
 			if (hit.collider.name == "PURPLE4") 
@@ -114,9 +115,9 @@ public class ChoosePart2 : MonoBehaviour {
 				numberArrow = 23;
 				numberAxe = 10;
 				numberStone = 4;
-				attacks.GetComponent<Attacks2> ().numberArrow=numberArrow;
-				attacks.GetComponent<Attacks2> ().numberAxe=numberAxe;
-				attacks.GetComponent<Attacks2> ().numberStone=numberStone;
+				attacks.numberArrow=numberArrow;
+				attacks.numberAxe=numberAxe;
+				attacks.numberStone=numberStone;
 				SceneManager.LoadScene("PlayerController2");
 			}
 			if (hit.collider.name == "ORANGE1") 
@@ -124,9 +125,9 @@ public class ChoosePart2 : MonoBehaviour {
 				numberArrow = 20;
 				numberAxe = 7;
 				numberStone = 2;
-				attacks.GetComponent<Attacks2> ().numberArrow=numberArrow;
-				attacks.GetComponent<Attacks2> ().numberAxe=numberAxe;
-				attacks.GetComponent<Attacks2> ().numberStone=numberStone;
+				attacks.numberArrow=numberArrow;
+				attacks.numberAxe=numberAxe;
+				attacks.numberStone=numberStone;
 				SceneManager.LoadScene("PlayerController2");
 			}
 			if (hit.collider.name == "ORANGE2") 
@@ -134,9 +135,9 @@ public class ChoosePart2 : MonoBehaviour {
 				numberArrow = 20;
 				numberAxe = 7;
 				numberStone = 2;
-				attacks.GetComponent<Attacks2> ().numberArrow=numberArrow;
-				attacks.GetComponent<Attacks2> ().numberAxe=numberAxe;
-				attacks.GetComponent<Attacks2> ().numberStone=numberStone;
+				attacks.numberArrow=numberArrow;
+				attacks.numberAxe=numberAxe;
+				attacks.numberStone=numberStone;
 				SceneManager.LoadScene("PlayerController2");
 			}
 			if (hit.collider.name == "ORANGE3") 
@@ -144,9 +145,9 @@ public class ChoosePart2 : MonoBehaviour {
 				numberArrow = 20;
 				numberAxe = 7;
 				numberStone = 2;
-				attacks.GetComponent<Attacks2> ().numberArrow=numberArrow;
-				attacks.GetComponent<Attacks2> ().numberAxe=numberAxe;
-				attacks.GetComponent<Attacks2> ().numberStone=numberStone;
+				attacks.numberArrow=numberArrow;
+				attacks.numberAxe=numberAxe;
+				attacks.numberStone=numberStone;
 				SceneManager.LoadScene("PlayerController2");
 			}
 

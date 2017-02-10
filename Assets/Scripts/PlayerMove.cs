@@ -4,10 +4,17 @@ using System.Collections;
 public class PlayerMove : MonoBehaviour {
 
 	public float distance = 5;
-	public float speed=3;
+	public float speed=0.00000001f;
 	public GameObject meteor;
 
 	private Vector3 initialPosition;
+	private Touch touch;
+	private float posZup=0;
+	private float posZdown=0;
+	private float posXRight=0;
+	private float posXLeft=0;
+	Vector3 rotation;
+
 	private Vector3 pos;
 	bool falling=true;
 	// Use this for initialization
@@ -15,6 +22,7 @@ public class PlayerMove : MonoBehaviour {
 		Time.timeScale = 1;
 		this.initialPosition = this.transform.localPosition;
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
+		rotation = new Vector3 (Time.deltaTime * 10, Time.deltaTime * 10, Time.deltaTime * 10);
 	}
 
 	void Update(){
@@ -23,20 +31,24 @@ public class PlayerMove : MonoBehaviour {
 	}
 
 	void MoveUpdate(){
-		if (Application.platform == RuntimePlatform.IPhonePlayer&&falling==true) {
-			pos=Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(0).position.x,Input.GetTouch(0).position.y,1));
-		}else{
+		if (Application.platform == RuntimePlatform.IPhonePlayer && falling == true) {
+			pos = Camera.main.ScreenToWorldPoint (new Vector3 (Input.GetTouch (0).position.x, Input.GetTouch (0).position.y, 1));
+		} else {
 			if (falling == true) {
 				pos = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 1.5f));
 			}
 		}
-		transform.position = new Vector3 (pos.x, pos.y -1.5f, pos.z+0.1f);
+		transform.position = new Vector3 (pos.x, pos.y - 1f, pos.z + 0.1f);
 
 		if (GameObject.Find ("Settings") != null) {
 			float dis = GameObject.Find ("Settings").GetComponent<SettingGame> ().camera;
-			transform.position = new Vector3 (pos.x, pos.y -1.5f + dis, pos.z+0.1f);
+			transform.position = new Vector3 (pos.x, pos.y - 1f + dis, pos.z + 0.1f);
 		}
 	}
+
+
+
+
 
 	void OnCollisionEnter(Collision other)
 	{
@@ -48,7 +60,7 @@ public class PlayerMove : MonoBehaviour {
 		}
 		if (other.gameObject.tag == "Light") {
 			other.gameObject.SetActive (false);
-			speed = 1f;
+			speed = 0.00000000001f;
 			StartCoroutine (Seconds ());
 		}
 		if (other.gameObject.tag == "Ground") {
@@ -59,6 +71,8 @@ public class PlayerMove : MonoBehaviour {
 
 	IEnumerator Seconds(){
 		yield return new WaitForSeconds (5f);
-		speed = 3f;
+		speed = 0.00000001f;
 	}
+
+
 }

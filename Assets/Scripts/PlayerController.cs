@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour {
 			meteor.transform.position= new Vector3 (meteor.transform.position.x, meteor.transform.position.y-300f, meteor.transform.position.z);
 
 
+
 		}
 		if(col.gameObject.tag == "Missile")
 		{

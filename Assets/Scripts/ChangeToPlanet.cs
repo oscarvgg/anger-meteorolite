@@ -11,13 +11,13 @@ public class ChangeToPlanet : MonoBehaviour {
 	void Update()
 	{
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(ray, out hit) && Input.GetMouseButton(0))
+		if (Physics.Raycast(ray, out hit) && (Input.touches.Length==1 || Input.GetMouseButtonUp(0)))
 		{
 			if (hit.collider.name == "PLANET1") {
 				SceneManager.LoadScene ("ChoosePartOfPlanet1");
 			} else if (hit.collider.name == "PLANET2") {
 				SceneManager.LoadScene ("ChoosePartOfPlanet2");
-			}else if (hit.collider.name == "PLANET3") {
+			} else if (hit.collider.name == "PLANET3") {
 				SceneManager.LoadScene ("ChoosePartOfPlanet3");
 			}
 		}
